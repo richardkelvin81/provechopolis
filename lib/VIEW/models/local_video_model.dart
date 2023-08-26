@@ -1,4 +1,4 @@
-import 'package:provechopolis/domain/entities/video_post.dart';
+import 'package:provechopolis/VIEW/domain/entities/video_post.dart';
 
 class LocalVideoModel {
   final String name;

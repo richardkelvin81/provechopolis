@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provechopolis/0features/videos/provider/discover_provider.dart';
-import 'package:provechopolis/0features/videos/widgets/shared/video_scrollable_view.dart';
+import 'package:provechopolis/VIEW/0features/videos/provider/discover_provider.dart';
+import 'package:provechopolis/VIEW/0features/videos/widgets/shared/video_scrollable_view.dart';
 import 'package:provechopolis/global_responsive.dart';
 import 'package:provider/provider.dart';
 

@@ -1,11 +1,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:provechopolis/0features/explorer/explorer_screen.dart';
-import 'package:provechopolis/0features/favorites/favorites_screen.dart';
-import 'package:provechopolis/0features/notify/notify_screen.dart';
-import 'package:provechopolis/0features/user/user_screen.dart';
-import 'package:provechopolis/0features/videos/screens/discover/discover_screen.dart';
+import 'package:provechopolis/VIEW/0features/explorer/explorer_screen.dart';
+import 'package:provechopolis/VIEW/0features/favorites/favorites_screen.dart';
+import 'package:provechopolis/VIEW/0features/notify/notify_screen.dart';
+import 'package:provechopolis/VIEW/0features/user/user_screen.dart';
+import 'package:provechopolis/VIEW/0features/videos/screens/discover/discover_screen.dart';
 import 'package:provechopolis/global_responsive.dart';
 
 class HomePublicScreen extends StatefulWidget {
@@ -28,7 +28,7 @@ class _HomePublicScreenState extends State<HomePublicScreen> {
   @override
   Widget build(BuildContext context) {
 
-    print ('HOLA MUNDO KEVIN SINCRONIZADO');
+    print ('carpetas organizadas Richard');
     return SafeArea(
       child: Scaffold(
           extendBody: true,

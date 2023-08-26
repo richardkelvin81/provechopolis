@@ -1,8 +1,8 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:blurrycontainer/blurrycontainer.dart';
 import 'package:flutter/material.dart';
-import 'package:provechopolis/0features/videos/widgets/shared/video_titulos.dart';
-import 'package:provechopolis/domain/entities/video_post.dart';
+import 'package:provechopolis/VIEW/0features/videos/widgets/shared/video_titulos.dart';
+import 'package:provechopolis/VIEW/domain/entities/video_post.dart';
 import 'package:provechopolis/global_responsive.dart';
 
 class BlurTitle extends StatelessWidget {

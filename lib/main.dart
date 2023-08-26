@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:provechopolis/0features/home/home_public_screen.dart';
-import 'package:provechopolis/0features/videos/provider/discover_provider.dart';
+import 'package:provechopolis/VIEW/0features/home/home_public_screen.dart';
+import 'package:provechopolis/VIEW/0features/videos/provider/discover_provider.dart';
 import 'package:provider/provider.dart';
 
-import 'config/app_theme.dart';
+import 'CONFIG/app_theme.dart';
 
 void main() => runApp(const MyApp());
 

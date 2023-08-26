@@ -5,11 +5,11 @@ import 'package:avatar_glow/avatar_glow.dart';
 import 'package:blurrycontainer/blurrycontainer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provechopolis/0features/videos/widgets/shared/blur_title.dart';
-import 'package:provechopolis/domain/entities/video_post.dart';
-import 'package:provechopolis/0features/videos/widgets/shared/video_buttons.dart';
-import 'package:provechopolis/0features/videos/widgets/shared/video_titulos.dart';
-import 'package:provechopolis/0features/videos/widgets/video/full_screen_player.dart';
+import 'package:provechopolis/VIEW/0features/videos/widgets/shared/blur_title.dart';
+import 'package:provechopolis/VIEW/domain/entities/video_post.dart';
+import 'package:provechopolis/VIEW/0features/videos/widgets/shared/video_buttons.dart';
+import 'package:provechopolis/VIEW/0features/videos/widgets/shared/video_titulos.dart';
+import 'package:provechopolis/VIEW/0features/videos/widgets/video/full_screen_player.dart';
 import 'package:provechopolis/global_responsive.dart';
 import 'delivery_button.dart';
 

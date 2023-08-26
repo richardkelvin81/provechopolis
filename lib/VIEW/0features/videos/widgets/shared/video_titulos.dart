@@ -2,7 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../domain/entities/video_post.dart';
-import '../../../../global_responsive.dart';
+import '../../../../../global_responsive.dart';
 
 class VideoTitulos extends StatelessWidget {
   final VideoPost video;
