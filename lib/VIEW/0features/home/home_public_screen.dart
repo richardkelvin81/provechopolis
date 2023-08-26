@@ -6,6 +6,7 @@ import 'package:provechopolis/VIEW/0features/favorites/favorites_screen.dart';
 import 'package:provechopolis/VIEW/0features/notify/notify_screen.dart';
 import 'package:provechopolis/VIEW/0features/user/user_screen.dart';
 import 'package:provechopolis/VIEW/0features/videos/screens/discover/discover_screen.dart';
+import 'package:provechopolis/VIEW/videos/new_video_screen.dart';
 import 'package:provechopolis/global_responsive.dart';
 
 class HomePublicScreen extends StatefulWidget {
@@ -21,7 +22,7 @@ class _HomePublicScreenState extends State<HomePublicScreen> {
     const FavoritesScreen(),
     const DiscoverScreen(),
     const NotifyScreen(),
-    const UserScreen()
+    const NewVideoScreen()
   ];
   GlobalKey _bottomNavigationKey = GlobalKey();
 
