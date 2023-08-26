@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provechopolis/VIEW/domain/entities/video_post.dart';
 import 'package:provechopolis/VIEW/models/local_video_model.dart';
-import 'package:provechopolis/SHARED/data/local_video_post.dart';
+import 'package:provechopolis/CONFIG/SHARED/data/local_video_post.dart';
 
 class DiscoverProvider extends ChangeNotifier{
 
