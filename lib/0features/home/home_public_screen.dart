@@ -27,6 +27,8 @@ class _HomePublicScreenState extends State<HomePublicScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+    print ('HOLA MUNDO DESDE GIT');
     return SafeArea(
       child: Scaffold(
           extendBody: true,
