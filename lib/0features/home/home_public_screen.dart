@@ -28,7 +28,7 @@ class _HomePublicScreenState extends State<HomePublicScreen> {
   @override
   Widget build(BuildContext context) {
 
-    print ('HOLA MUNDO SINCRONIZADO');
+    print ('HOLA MUNDO KEVIN SINCRONIZADO');
     return SafeArea(
       child: Scaffold(
           extendBody: true,
