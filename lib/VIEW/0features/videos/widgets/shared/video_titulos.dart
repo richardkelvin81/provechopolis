@@ -16,7 +16,7 @@ class VideoTitulos extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
-        horizontal: GlobalResponsive.smallFont(context) + 5),
+        horizontal: GlobalResponsive.smallFont(context) + 6),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -25,11 +25,11 @@ class VideoTitulos extends StatelessWidget {
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.w400,
                 color: Colors.white,
-                fontSize: GlobalResponsive.smallFont(context) - 3.3),
+                fontSize: GlobalResponsive.smallFont(context) - 3.5),
           ),
-          SizedBox(height: GlobalResponsive.paddingText(context) - 10),
+          const SizedBox(height: 1.2),
           Text(
             video.caption,
             maxLines: 1,

@@ -22,39 +22,50 @@ class BlurTitle extends StatelessWidget {
         padding: EdgeInsets.only(
           left: GlobalResponsive.bigDiference(context) - 7,
           right: GlobalResponsive.bigDiference(context) + 80),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(90),
-          child: BackdropFilter(
-            
-            filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
-            child: Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: Colors.black54,
-                borderRadius: BorderRadius.circular(90),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  CircleAvatar(
-                    maxRadius: GlobalResponsive.bigDiference(context),
-                    backgroundColor: Color(0xFFF8C358),
-                  ),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment:
-                          CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 5.0),
-                          child: VideoTitulos(
-                            video: videoPost,
-                          ),
-                        ),
-                      ],
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(90),
+            boxShadow: [ BoxShadow(
+              blurStyle: BlurStyle.outer,
+              color: Colors.white.withOpacity(0.2),
+              blurRadius: 18.5,
+            )],
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(90),
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
+              child: Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  
+                  color: const Color.fromARGB(105, 0, 0, 0),
+                  borderRadius: BorderRadius.circular(90),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CircleAvatar(
+                      maxRadius: GlobalResponsive.bigDiference(context) + 6.5,
+                      backgroundColor: const Color(0xFFF8C358),
+                      backgroundImage: AssetImage("assets/logopollo.jpeg"),
                     ),
-                  ),
-                ],
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment:
+                            CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 5.0),
+                            child: VideoTitulos(
+                              video: videoPost,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
