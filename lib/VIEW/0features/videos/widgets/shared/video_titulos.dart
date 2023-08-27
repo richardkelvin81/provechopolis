@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marquee_widget/marquee_widget.dart';
 
 import '../../../../domain/entities/video_post.dart';
 import '../../../../../global_responsive.dart';
@@ -19,6 +20,7 @@ class VideoTitulos extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          
           Text(
             video.description,
             maxLines: 1,
@@ -29,15 +31,19 @@ class VideoTitulos extends StatelessWidget {
                 fontSize: GlobalResponsive.smallFont(context) - 3.5),
           ),
           const SizedBox(height: 1.2),
-          Text(
-            video.caption,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(
-                fontFamily: 'Barlow Bold',
-                color: Colors.white,
-                fontSize: GlobalResponsive.smallFont(context) + 2.85),
+          Marquee(
+            direction: Axis.horizontal,
+            child: Text(
+              video.caption,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                  fontFamily: 'Barlow Bold',
+                  color: Colors.white,
+                  fontSize: GlobalResponsive.smallFont(context) + 2.85),
+              ),
           ),
+          
         ],
       ),
     );

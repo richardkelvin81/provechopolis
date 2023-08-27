@@ -1,7 +1,6 @@
-import 'dart:ui';
+import 'package:flutter/material.dart';
 
 import 'package:animate_do/animate_do.dart';
-import 'package:flutter/material.dart';
 import 'package:provechopolis/VIEW/0features/videos/widgets/shared/blur_title.dart';
 import 'package:provechopolis/global_responsive.dart';
 
@@ -34,34 +33,24 @@ class DeliveryButton extends StatelessWidget {
   }
 }
 
-class IconAnimated extends StatelessWidget {
 
-  final IconData icon;
-
-  const IconAnimated({
-    super.key, required this.icon,
-  });
+class AvatarImage extends StatelessWidget {
+  const AvatarImage();
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: GlobalResponsive.smallFont(context) - 7,
-        vertical: GlobalResponsive.smallFont(context) - 6,
-      ),
-      child: Swing(
-        infinite: true,
-        child: Container(
-          height: GlobalResponsive.bigDiference(context) * 1.75,
-          width: GlobalResponsive.bigDiference(context) * 1.75,
-          decoration: BoxDecoration(
-              border: Border.all(color: Colors.white),
-              color: Colors.black54, 
-              borderRadius: BorderRadius.circular(99)),
-          child: Icon(
-            icon, 
-            size: GlobalResponsive.bigDiference(context) - 9, 
-            color: Colors.white)
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(90),
+        border: Border.all(
+          width: 3.5,
+          color: const Color(0xFFF8C358),)),
+      child: Padding(
+        padding: const EdgeInsets.all(3.5),
+        child: CircleAvatar(
+          radius: GlobalResponsive.bigDiference(context) + 4,
+          backgroundColor: const Color(0xFFF8C358),
+          backgroundImage: const AssetImage("assets/logopollo.jpeg"),
         ),
       ),
     );

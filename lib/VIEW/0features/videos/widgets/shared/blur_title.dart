@@ -55,7 +55,7 @@ class BlurTitle extends StatelessWidget {
                   const AvatarImage(),
                   Expanded(
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 3.0),
+                      padding: const EdgeInsets.symmetric(vertical: 3.5),
                       child: VideoTitulos(
                         video: videoPost,
                       ),
@@ -78,12 +78,12 @@ class AvatarImage extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(90),
         border: Border.all(
-          width: 3,
+          width: 3.5,
           color: const Color(0xFFF8C358),)),
       child: Padding(
-        padding: const EdgeInsets.all(3.0),
+        padding: const EdgeInsets.all(3.5),
         child: CircleAvatar(
-          maxRadius: GlobalResponsive.bigDiference(context) + 5.5,
+          radius: GlobalResponsive.bigDiference(context) + 4,
           backgroundColor: const Color(0xFFF8C358),
           backgroundImage: const AssetImage("assets/logopollo.jpeg"),
         ),
