@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:animate_do/animate_do.dart';
-import 'package:avatar_glow/avatar_glow.dart';
 import 'package:provechopolis/VIEW/0features/videos/widgets/shared/blur_title.dart';
 import 'package:provechopolis/VIEW/domain/entities/video_post.dart';
 import 'package:provechopolis/VIEW/0features/videos/widgets/video/full_screen_player.dart';
@@ -55,36 +54,27 @@ class VideoScrollableView extends StatelessWidget {
                Positioned(
                 bottom: 0,
                 right: -30,
-                child: AvatarGlow(
-                  animate: true,
-                  glowColor: Color.fromARGB(84, 255, 255, 255),
-                  endRadius: 120,
-                  duration: const Duration(milliseconds: 1400),
-                  repeat: true,
-                  showTwoGlows: true,
-                  curve: Curves.easeOutQuad,
-                  child: Swing(
+                child: Swing(
                 infinite: true,
                 child: Container(
-                    width: GlobalResponsive.bigDiference(context) + 30,
-                    height: GlobalResponsive.bigDiference(context) + 30,
-                    decoration: BoxDecoration(
-                        
-                        gradient: const LinearGradient(
-                          colors: [
-                            Color(0xFFDA746F),
-                            Color.fromARGB(176, 218, 161, 111),
-                          ]),
-                        borderRadius: BorderRadius.circular(99)),
-                    child: Padding(
-                      padding: EdgeInsets.all(
-                          GlobalResponsive.mediumFont(context)),
-                      child: const Image(
-                        image: AssetImage('assets/logopp.png'),
-                      ),
-                    )),
-                   ),
-                  ),
+                  width: GlobalResponsive.bigDiference(context) + 30,
+                  height: GlobalResponsive.bigDiference(context) + 30,
+                  decoration: BoxDecoration(
+                      
+                      gradient: const LinearGradient(
+                        colors: [
+                          Color(0xFFDA746F),
+                          Color.fromARGB(176, 218, 161, 111),
+                        ]),
+                      borderRadius: BorderRadius.circular(99)),
+                  child: Padding(
+                    padding: EdgeInsets.all(
+                        GlobalResponsive.mediumFont(context)),
+                    child: const Image(
+                      image: AssetImage('assets/logopp.png'),
+                    ),
+                  )),
+                 ),
                 ),
               ],
           );
