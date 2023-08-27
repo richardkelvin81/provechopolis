@@ -31,7 +31,7 @@ class FavoritesScreen extends StatelessWidget {
                             child: const Icon(Icons.logout_sharp, color: Colors.black)),
                       )
                     ]),
-                body: Text('')
+                body: const Text('')
               ),
         )),
       );

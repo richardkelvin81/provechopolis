@@ -20,8 +20,7 @@ class BlurTitle extends StatelessWidget {
             delay: const Duration(milliseconds: 250),
       child: Padding(
         padding: EdgeInsets.only(
-          left: GlobalResponsive.bigDiference(context) - 7,
-          right: GlobalResponsive.bigDiference(context) + 80),
+          left: GlobalResponsive.bigDiference(context) - 7,),
         child: DecoratedBox(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(90),
@@ -71,9 +70,7 @@ class BlurTitle extends StatelessWidget {
 }
 
 class _AvatarImage extends StatelessWidget {
-  const _AvatarImage({
-    super.key,
-  });
+  const _AvatarImage();
 
   @override
   Widget build(BuildContext context) {

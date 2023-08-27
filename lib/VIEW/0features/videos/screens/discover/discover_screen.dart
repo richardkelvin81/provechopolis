@@ -21,7 +21,7 @@ class DiscoverScreen extends StatelessWidget {
               padding: EdgeInsets.only(
                   top: 5,
                   bottom: GlobalResponsive.bigDiference(context) - 20),
-              child: _CustomAppBar(),
+              child: const _CustomAppBar(),
               ),
             ),
         body: discoverProvider.initialLoading

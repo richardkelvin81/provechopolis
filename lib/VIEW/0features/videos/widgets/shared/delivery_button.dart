@@ -10,32 +10,20 @@ class DeliveryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-        child: Container(
-          padding: EdgeInsets.all(GlobalResponsive.smallFont(context) - 6,),
-          decoration: const BoxDecoration(
-            color: Color.fromARGB(92, 0, 0, 0),
-            borderRadius: BorderRadius.all(
-              Radius.circular(100)
-            ),
-          ),
-          child: Column(
-            children: [
-              FadeInUp(
-                delay: const Duration(milliseconds: 500),
-                child: const IconAnimated(icon: Icons.favorite_rounded,)),
-              FadeInUp(
-                delay: const Duration(milliseconds: 650),
-                child: const IconAnimated(icon: Icons.comment,)),
-              FadeInUp(
-                delay: const Duration(milliseconds: 800),
-                child: const IconAnimated(icon: Icons.share,)),
-            ],
-          ),
-        ),
-      ),
+    return Column(
+      children: [
+        FadeInUp(
+          delay: const Duration(milliseconds: 500),
+          child: const IconAnimated(icon: Icons.favorite_rounded,)),
+        FadeInUp(
+          delay: const Duration(milliseconds: 650),
+          child: const IconAnimated(icon: Icons.comment,)),
+        FadeInUp(
+          delay: const Duration(milliseconds: 800),
+          child: const IconAnimated(icon: Icons.share,)),
+        const _ButtonPP(),
+          
+      ],
     );
   }
 }
@@ -71,5 +59,38 @@ class IconAnimated extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+
+class _ButtonPP extends StatelessWidget {
+  const _ButtonPP({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Swing(
+      infinite: true,
+      child: Container(
+        width: GlobalResponsive.bigDiference(context) + 30,
+        height: GlobalResponsive.bigDiference(context) + 30,
+        decoration: BoxDecoration(
+            
+            gradient: const LinearGradient(
+              colors: [
+                Color(0xFFF8C358),
+                Color(0xFFFAAB48),
+                
+              ]),
+            borderRadius: BorderRadius.circular(99)),
+        child: Padding(
+          padding: EdgeInsets.all(
+              GlobalResponsive.mediumFont(context)),
+          child: const Image(
+            image: AssetImage('assets/logopp.png'),
+          ),
+        )),
+       );
   }
 }
