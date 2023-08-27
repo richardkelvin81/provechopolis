@@ -30,7 +30,6 @@ environment:
 dependencies:
   animate_do: ^3.0.2
   avatar_glow: ^2.0.2
-  blurrycontainer: ^1.0.2
   cupertino_icons: ^1.0.2
   curved_navigation_bar: ^1.0.3
   flutter:

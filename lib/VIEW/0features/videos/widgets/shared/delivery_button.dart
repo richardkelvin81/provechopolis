@@ -1,6 +1,7 @@
+import 'dart:ui';
+
 import 'package:animate_do/animate_do.dart';
 import 'package:avatar_glow/avatar_glow.dart';
-import 'package:blurrycontainer/blurrycontainer.dart';
 import 'package:flutter/material.dart';
 import 'package:provechopolis/global_responsive.dart';
 
@@ -10,33 +11,32 @@ class DeliveryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(
-          Radius.circular(100)
-        ),
-      ),
-      child: BlurryContainer(
-        borderRadius: BorderRadius.all(
-          Radius.circular(GlobalResponsive.smallFont(context) + 36,)
-        ),
-        padding: EdgeInsets.all(GlobalResponsive.smallFont(context) - 6,),
-        color: Color.fromARGB(92, 0, 0, 0),
-        blur: 20,
+    return ClipRRect(
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+        child: Container(
+          padding: EdgeInsets.all(GlobalResponsive.smallFont(context) - 6,),
+          decoration: const BoxDecoration(
+            color: Color.fromARGB(92, 0, 0, 0),
+            borderRadius: BorderRadius.all(
+              Radius.circular(100)
+            ),
+          ),
           child: Column(
             children: [
               FadeInUp(
-                delay: Duration(milliseconds: 500),
-                child: IconAnimated(icon: Icons.favorite_rounded,)),
+                delay: const Duration(milliseconds: 500),
+                child: const IconAnimated(icon: Icons.favorite_rounded,)),
               FadeInUp(
-                delay: Duration(milliseconds: 650),
-                child: IconAnimated(icon: Icons.comment,)),
+                delay: const Duration(milliseconds: 650),
+                child: const IconAnimated(icon: Icons.comment,)),
               FadeInUp(
-                delay: Duration(milliseconds: 800),
-                child: IconAnimated(icon: Icons.share,)),
+                delay: const Duration(milliseconds: 800),
+                child: const IconAnimated(icon: Icons.share,)),
             ],
           ),
         ),
+      ),
     );
   }
 }

@@ -25,7 +25,7 @@ class DiscoverScreen extends StatelessWidget {
               ),
             ),
         body: discoverProvider.initialLoading
-            ? Center(
+            ? const Center(
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
