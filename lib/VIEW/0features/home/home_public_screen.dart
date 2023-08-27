@@ -63,4 +63,3 @@ class _HomePublicScreenState extends State<HomePublicScreen> {
     );
   }
 }
-

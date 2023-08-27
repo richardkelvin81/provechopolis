@@ -11,71 +11,43 @@ class DiscoverScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final discoverProvider = context.watch<DiscoverProvider>();
 
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
-          extendBodyBehindAppBar: true,
-          backgroundColor: const Color(0xFF292A2C),
-          appBar: AppBar(
-              elevation: 0,
-              backgroundColor: Colors.transparent,
-              title: Padding(
-                padding: EdgeInsets.only(
-                    top: 5,
-                    bottom: GlobalResponsive.bigDiference(context) - 20),
-                child: _CustomAppBar(),
+    return Scaffold(
+        extendBodyBehindAppBar: true,
+        backgroundColor: const Color(0xFF292A2C),
+        appBar: AppBar(
+            elevation: 0,
+            backgroundColor: Colors.transparent,
+            title: Padding(
+              padding: EdgeInsets.only(
+                  top: 5,
+                  bottom: GlobalResponsive.bigDiference(context) - 20),
+              child: _CustomAppBar(),
               ),
-              bottom: TabBar(
-                  indicatorPadding: const EdgeInsets.symmetric(
-                    horizontal: 17,
-                  ),
-                  indicatorSize: TabBarIndicatorSize.label,
-                  unselectedLabelColor: Colors.grey,
-                  indicatorColor: Color(0xFFDA746F),
-                  labelColor: Color(0xFFDA746F),
-                  padding: EdgeInsets.symmetric(
-                      horizontal:
-                          GlobalResponsive.bigDiference(context) * 2.35),
-                  tabs: const [
-                    Tab(
-                      icon: Icon(Icons.home),
-                      text: "En tu zona",
-                    ),
-                    Tab(
-                      icon: Icon(Icons.search),
-                      text: "Global",
-                    ),
-                  ])),
-          body: discoverProvider.initialLoading
-              ? Center(
-                  child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Espere un momento',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'Gogh',
-                            fontSize: 14,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        CircularProgressIndicator(
+            ),
+        body: discoverProvider.initialLoading
+            ? Center(
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Espere un momento',
+                        style: TextStyle(
                           color: Colors.white,
+                          fontFamily: 'Gogh',
+                          fontSize: 14,
                         ),
-                      ]),
-                )
-              : TabBarView(
-                  children: [
-                    VideoScrollableView(
-                      videos: discoverProvider.videos,
-                    ),
-                    Center(child: Text("Hola Global"))
-                  ],
-                )),
-    );
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      CircularProgressIndicator(
+                        color: Colors.white,
+                      ),
+                    ]),
+              )
+            : VideoScrollableView(
+              videos: discoverProvider.videos,
+            ));
   }
 }
 
