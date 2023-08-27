@@ -82,7 +82,7 @@ class GlobalResponsive {
     } else if (screenWidth >= 500) {
       return 13.0;
     } else {
-      return 13;
+      return 12.5;
     }
   }
 }

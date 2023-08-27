@@ -27,9 +27,9 @@ class VideoTitulos extends StatelessWidget {
             style: TextStyle(
                 fontWeight: FontWeight.w500,
                 color: Colors.white,
-                fontSize: GlobalResponsive.smallFont(context) - 2.85),
+                fontSize: GlobalResponsive.smallFont(context) - 3.3),
           ),
-          SizedBox(height: GlobalResponsive.smallFont(context) - 9.2),
+          SizedBox(height: GlobalResponsive.paddingText(context) - 10),
           Text(
             video.caption,
             maxLines: 1,
