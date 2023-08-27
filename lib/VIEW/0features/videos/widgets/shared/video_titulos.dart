@@ -32,6 +32,8 @@ class VideoTitulos extends StatelessWidget {
           ),
           const SizedBox(height: 1.2),
           Marquee(
+            backDuration: const Duration(milliseconds: 2000),
+            backwardAnimation: Curves.slowMiddle,
             direction: Axis.horizontal,
             child: Text(
               video.caption,

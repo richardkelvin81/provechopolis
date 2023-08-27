@@ -27,7 +27,7 @@ class BlurTitle extends StatelessWidget {
             boxShadow: [ BoxShadow(
               blurStyle: BlurStyle.outer,
               color: Colors.white.withOpacity(0.22),
-              blurRadius: 22,
+              blurRadius: 24,
             )],
           ),
           child: containerBlur(context),
@@ -46,7 +46,7 @@ class BlurTitle extends StatelessWidget {
               width: double.infinity,
               decoration: BoxDecoration(
                 
-                color: const Color.fromARGB(105, 0, 0, 0),
+                color: Color.fromARGB(84, 0, 0, 0),
                 borderRadius: BorderRadius.circular(90),
               ),
               child: Row(

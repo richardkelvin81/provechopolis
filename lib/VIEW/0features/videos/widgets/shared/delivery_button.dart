@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:animate_do/animate_do.dart';
-import 'package:provechopolis/VIEW/0features/videos/widgets/shared/blur_title.dart';
 import 'package:provechopolis/global_responsive.dart';
 
 
@@ -10,13 +9,14 @@ class DeliveryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: [
-        const AvatarImage(),
-        const AvatarImage(),
-        const AvatarImage(),
-        const AvatarImage(),
-        const AvatarImage(),
+        _ButtonReactions(),
+        _ButtonReactions(),
+        _ButtonReactions(),
+        _ButtonPP(
+          path: "assets/logopp.png"
+        ),
         /*FadeInUp(
           delay: const Duration(milliseconds: 500),
           child: const IconAnimated(icon: Icons.favorite_rounded,)),
@@ -34,23 +34,25 @@ class DeliveryButton extends StatelessWidget {
 }
 
 
-class AvatarImage extends StatelessWidget {
-  const AvatarImage();
+class _ButtonReactions extends StatelessWidget {
+  const _ButtonReactions();
 
   @override
   Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(90),
-        border: Border.all(
-          width: 3.5,
-          color: const Color(0xFFF8C358),)),
-      child: Padding(
-        padding: const EdgeInsets.all(3.5),
+    return Padding(
+      padding: EdgeInsets.only(
+        top: GlobalResponsive.smallFont(context) - 6
+      ),
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(90),
+          border: Border.all(
+            width: 1,
+            color: Colors.white,)),
         child: CircleAvatar(
-          radius: GlobalResponsive.bigDiference(context) + 4,
-          backgroundColor: const Color(0xFFF8C358),
-          backgroundImage: const AssetImage("assets/logopollo.jpeg"),
+          radius: GlobalResponsive.bigDiference(context) + 7.5,
+          backgroundColor: Colors.black87,
+          child: const Icon(Icons.favorite_sharp, color: Colors.white),
         ),
       ),
     );
@@ -59,33 +61,43 @@ class AvatarImage extends StatelessWidget {
 
 
 class _ButtonPP extends StatelessWidget {
-  const _ButtonPP({
-    super.key,
-  });
+
+  final String path;
+  const _ButtonPP({super.key, required this.path});
+
 
   @override
   Widget build(BuildContext context) {
-    return Swing(
-      infinite: true,
-      child: Container(
-        width: GlobalResponsive.bigDiference(context) + 30,
-        height: GlobalResponsive.bigDiference(context) + 30,
+    return Padding(
+      padding: EdgeInsets.only(
+        top: GlobalResponsive.smallFont(context) - 6
+      ),
+      child: DecoratedBox(
         decoration: BoxDecoration(
-            
-            gradient: const LinearGradient(
-              colors: [
-                Color(0xFFF8C358),
-                Color(0xFFFAAB48),
-                
-              ]),
-            borderRadius: BorderRadius.circular(99)),
-        child: Padding(
-          padding: EdgeInsets.all(
-              GlobalResponsive.mediumFont(context)),
-          child: const Image(
-            image: AssetImage('assets/logopp.png'),
-          ),
-        )),
-       );
+          borderRadius: BorderRadius.circular(90),
+          gradient: const LinearGradient(
+            colors: [
+              Color(0xFFF8C358),
+              Color.fromARGB(255, 240, 150, 76),
+            ]),
+          boxShadow: [BoxShadow(
+            blurRadius: 15,
+            color: Colors.white.withOpacity(0.2)
+
+          )]
+        ),
+        child: CircleAvatar(
+          radius: GlobalResponsive.bigDiference(context) + 7.5,
+          backgroundColor: Colors.transparent,
+          child: Padding(
+            padding: EdgeInsets.all(
+                GlobalResponsive.mediumFont(context)),
+            child: Image(
+              image: AssetImage(path),
+            ),
+          )
+        ),
+      ),
+    );
   }
 }
