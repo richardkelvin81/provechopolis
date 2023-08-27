@@ -27,8 +27,8 @@ class BlurTitle extends StatelessWidget {
             borderRadius: BorderRadius.circular(90),
             boxShadow: [ BoxShadow(
               blurStyle: BlurStyle.outer,
-              color: Colors.white.withOpacity(0.2),
-              blurRadius: 18.5,
+              color: Colors.white.withOpacity(0.22),
+              blurRadius: 22,
             )],
           ),
           child: ClipRRect(
@@ -38,30 +38,33 @@ class BlurTitle extends StatelessWidget {
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  
                   color: const Color.fromARGB(105, 0, 0, 0),
                   borderRadius: BorderRadius.circular(90),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    CircleAvatar(
-                      maxRadius: GlobalResponsive.bigDiference(context) + 6.5,
-                      backgroundColor: const Color(0xFFF8C358),
-                      backgroundImage: AssetImage("assets/logopollo.jpeg"),
+                    DecoratedBox(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(90),
+                        border: Border.all(
+                          width: 3,
+                          color: const Color(0xFFF8C358),)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(3.0),
+                        child: CircleAvatar(
+                          maxRadius: GlobalResponsive.bigDiference(context) + 5.5,
+                          backgroundColor: const Color(0xFFF8C358),
+                          backgroundImage: AssetImage("assets/logopollo.jpeg"),
+                        ),
+                      ),
                     ),
                     Expanded(
-                      child: Column(
-                        crossAxisAlignment:
-                            CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 5.0),
-                            child: VideoTitulos(
-                              video: videoPost,
-                            ),
-                          ),
-                        ],
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 3.0),
+                        child: VideoTitulos(
+                          video: videoPost,
+                        ),
                       ),
                     ),
                   ],
