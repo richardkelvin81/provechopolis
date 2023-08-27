@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:provechopolis/VIEW/0features/videos/widgets/shared/blur_title.dart';
 import 'package:provechopolis/global_responsive.dart';
 
 
@@ -12,7 +13,12 @@ class DeliveryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        FadeInUp(
+        const AvatarImage(),
+        const AvatarImage(),
+        const AvatarImage(),
+        const AvatarImage(),
+        const AvatarImage(),
+        /*FadeInUp(
           delay: const Duration(milliseconds: 500),
           child: const IconAnimated(icon: Icons.favorite_rounded,)),
         FadeInUp(
@@ -21,7 +27,7 @@ class DeliveryButton extends StatelessWidget {
         FadeInUp(
           delay: const Duration(milliseconds: 800),
           child: const IconAnimated(icon: Icons.share,)),
-        const _ButtonPP(),
+        const _ButtonPP(),*/
           
       ],
     );

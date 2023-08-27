@@ -52,7 +52,7 @@ class BlurTitle extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const _AvatarImage(),
+                  const AvatarImage(),
                   Expanded(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 3.0),
@@ -69,8 +69,8 @@ class BlurTitle extends StatelessWidget {
   }
 }
 
-class _AvatarImage extends StatelessWidget {
-  const _AvatarImage();
+class AvatarImage extends StatelessWidget {
+  const AvatarImage();
 
   @override
   Widget build(BuildContext context) {
