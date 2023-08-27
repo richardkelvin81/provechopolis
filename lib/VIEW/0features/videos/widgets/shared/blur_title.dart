@@ -42,7 +42,7 @@ class BlurTitle extends StatelessWidget {
                         CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: EdgeInsets.symmetric(vertical: 5.0),
+                        padding: const EdgeInsets.symmetric(vertical: 5.0),
                         child: VideoTitulos(
                           video: videoPost,
                         ),
