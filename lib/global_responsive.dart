@@ -57,7 +57,7 @@ class GlobalResponsive {
   static double bigDiference(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
     if (screenWidth >= 500) {
-      return 33.0;
+      return 30.0;
     } else if (screenWidth >= 450) {
       return 29.0;
     } else if (screenWidth >= 400) {

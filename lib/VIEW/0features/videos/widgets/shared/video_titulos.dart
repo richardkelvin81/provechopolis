@@ -42,7 +42,7 @@ class VideoTitulos extends StatelessWidget {
               style: TextStyle(
                   fontFamily: 'Barlow Bold',
                   color: Colors.white,
-                  fontSize: GlobalResponsive.smallFont(context) + 4),
+                  fontSize: GlobalResponsive.smallFont(context) + 2.5),
               ),
           ),
           
