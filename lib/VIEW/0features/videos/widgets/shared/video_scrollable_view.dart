@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 import 'package:provechopolis/VIEW/0features/videos/widgets/shared/blur_title.dart';
@@ -57,6 +59,29 @@ class VideoScrollableView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Spacer(),
+                //TopsBlurTitle(),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(90),
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(
+                      sigmaX: 4,
+                      sigmaY: 4,
+                    ),
+                    child: MaterialButton(
+                      onPressed: () {},
+                      child: const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Row(
+                          children: [
+                            Icon(Icons.social_distance),
+                            SizedBox(width: 6,),
+                            Text("Seguir a este restaurante"),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
                 BlurTitle(videoPost: videoPost),
               ],
             ),
@@ -64,7 +89,7 @@ class VideoScrollableView extends StatelessWidget {
   }
 
   Column segundaColumna() {
-    return  Column(
+    return const Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       DeliveryButton(),

@@ -22,7 +22,7 @@ class VideoTitulos extends StatelessWidget {
         children: [
           
           Text(
-            video.description,
+            "${video.description} - Ver Detalles",
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
@@ -42,7 +42,7 @@ class VideoTitulos extends StatelessWidget {
               style: TextStyle(
                   fontFamily: 'Barlow Bold',
                   color: Colors.white,
-                  fontSize: GlobalResponsive.smallFont(context) + 2.85),
+                  fontSize: GlobalResponsive.smallFont(context) + 2.5),
               ),
           ),
           
