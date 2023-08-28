@@ -1,5 +1,5 @@
-import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:marquee_widget/marquee_widget.dart';
 
 import '../../../../domain/entities/video_post.dart';
 import '../../../../../global_responsive.dart';
@@ -16,29 +16,36 @@ class VideoTitulos extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
-        horizontal: GlobalResponsive.smallFont(context) + 5),
+        horizontal: GlobalResponsive.smallFont(context) + 6),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          
           Text(
             video.description,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.w400,
                 color: Colors.white,
-                fontSize: GlobalResponsive.smallFont(context) - 2.85),
+                fontSize: GlobalResponsive.smallFont(context) - 3.5),
           ),
-          SizedBox(height: GlobalResponsive.smallFont(context) - 9.2),
-          Text(
-            video.caption,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(
-                fontFamily: 'Barlow Bold',
-                color: Colors.white,
-                fontSize: GlobalResponsive.smallFont(context) + 2.85),
+          const SizedBox(height: 1.2),
+          Marquee(
+            backDuration: const Duration(milliseconds: 2000),
+            backwardAnimation: Curves.slowMiddle,
+            direction: Axis.horizontal,
+            child: Text(
+              video.caption,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                  fontFamily: 'Barlow Bold',
+                  color: Colors.white,
+                  fontSize: GlobalResponsive.smallFont(context) + 2.85),
+              ),
           ),
+          
         ],
       ),
     );

@@ -1,14 +1,7 @@
-import 'dart:ui';
-
-import 'package:animate_do/animate_do.dart';
-import 'package:avatar_glow/avatar_glow.dart';
-import 'package:blurrycontainer/blurrycontainer.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'package:provechopolis/VIEW/0features/videos/widgets/shared/blur_title.dart';
 import 'package:provechopolis/VIEW/domain/entities/video_post.dart';
-import 'package:provechopolis/VIEW/0features/videos/widgets/shared/video_buttons.dart';
-import 'package:provechopolis/VIEW/0features/videos/widgets/shared/video_titulos.dart';
 import 'package:provechopolis/VIEW/0features/videos/widgets/video/full_screen_player.dart';
 import 'package:provechopolis/global_responsive.dart';
 import 'delivery_button.dart';
@@ -33,134 +26,49 @@ class VideoScrollableView extends StatelessWidget {
                   videoUrl: videoPost.videoUrl,
                 ),
               ),
-              /*WIDGETS DE LA PANTALLA DE REELS*/
-              Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Spacer(),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: FadeIn(
-                      delay: const Duration(
-                        milliseconds: 1500,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                            right: GlobalResponsive.bigDiference(context) - 11.5,
-                            bottom: GlobalResponsive.bigDiference(context)),
-                        child: const DeliveryButton(),
-                      ),
-                    ),
-                  ),
-                  BlurTitle(videoPost: videoPost),
-                  SizedBox(height: GlobalResponsive.bigDiference(context) + 48),
-                ],
+              /* INSTRUCTIVA DE WIDGETS DE LA PANTALLA DE REELS */
+              // DESDE ESTE PUNTO SE CONFORMAN DOS COLUMNAS EN UNA FILA
+              // LA PRIMER COLUMNA SON LOS ELEMENTOS DE LA IZQUIERDA
+              // LA SEGUNDA COLUMNA SON LOS ELEMENTOS DE LA DERECHA, LOS BOTONES PARA REACCIONAR A LOS VIDEOS
+              Padding(
+                padding: EdgeInsets.only(
+                  bottom: GlobalResponsive.bigDiference(context) + 48
+                ),
+                child: Row(
+                  children: [
+                    primerColumna(videoPost),
+                    SizedBox(width: GlobalResponsive.bigDiference(context) - 7,),
+                    segundaColumna(),
+                    SizedBox(width: GlobalResponsive.bigDiference(context),),
+                  ],
+                ),
               ),
-               Positioned(
-    bottom: 0,
-    right: -30,
-    child: AvatarGlow(
-      animate: true,
-      glowColor: Color.fromARGB(84, 255, 255, 255),
-      endRadius: 120,
-      duration: const Duration(milliseconds: 1400),
-      repeat: true,
-      showTwoGlows: true,
-      curve: Curves.easeOutQuad,
-      child: Swing(
-            infinite: true,
-            child: Container(
-                width: GlobalResponsive.bigDiference(context) + 30,
-                height: GlobalResponsive.bigDiference(context) + 30,
-                decoration: BoxDecoration(
-                    
-                    gradient: const LinearGradient(
-                      colors: [
-                        Color(0xFFDA746F),
-                        Color.fromARGB(176, 218, 161, 111),
-                      ]),
-                    borderRadius: BorderRadius.circular(99)),
-                child: Padding(
-                  padding: EdgeInsets.all(
-                      GlobalResponsive.mediumFont(context)),
-                  child: const Image(
-                    image: AssetImage('assets/logopp.png'),
-                  ),
-                )),
-      ),
-                        ),
-                      ),
-             
+               
               ],
           );
         });
   }
-}
 
-class _ButtonTitle extends StatelessWidget {
-  const _ButtonTitle({
-    super.key,
-  });
 
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: Center(
-            child: FadeInUp(
-              from: 45,
-              duration: const Duration(milliseconds: 300),
-              delay: const Duration(seconds: 1),
-              child: Container(
-                width: GlobalResponsive.bigDiference(context) + 185,
-                height: GlobalResponsive.bigDiference(context) + 9,
-                clipBehavior: Clip.antiAlias,
-                decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                          blurRadius: 11.5, color: Color.fromARGB(64, 0, 0, 0))
-                    ],
-                    borderRadius: BorderRadius.vertical(
-                      top: Radius.circular(
-                        GlobalResponsive.bigDiference(context) - 8.5
-                      )
-                    ),
-                    gradient: LinearGradient(
-                        begin: Alignment.centerLeft,
-                        end: Alignment.centerRight,
-                        colors: [
-                          Color(0xFFda6f79),
-                          Color.fromARGB(255, 243, 175, 132),
-                        ])),
-                child: MaterialButton(
-                  onPressed: () {},
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.food_bank_rounded,
-                          color: Colors.white,
-                          size: GlobalResponsive.smallFont(context) + 7),
-                      SizedBox(width: GlobalResponsive.smallFont(context) - 1),
-                      Text(
-                        'Pedir Delivery',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w600,
-                            fontSize:
-                                GlobalResponsive.smallFont(context) - 0.5),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+  Expanded primerColumna(VideoPost videoPost) {
+    return Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Spacer(),
+                BlurTitle(videoPost: videoPost),
+              ],
             ),
-          ),
-        ),
-      ],
-    );
+          );
+  }
+
+  Column segundaColumna() {
+    return const Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      DeliveryButton(),
+                    ],
+                  );
   }
 }

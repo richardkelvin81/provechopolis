@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 class NotifyScreen extends StatelessWidget {
@@ -8,7 +6,7 @@ class NotifyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Stack con Efecto de Desenfoque')),
+        appBar: AppBar(title: const Text('Stack con Efecto de Desenfoque')),
         body: Center(
           child: Stack(
             children: [
