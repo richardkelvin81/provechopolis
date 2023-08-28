@@ -9,16 +9,30 @@ class DeliveryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
-         _ButtonPP(
-          path: "assets/favorito.png"
-        ),
-        _ButtonReactions(),
-        _ButtonReactions(),
-        _ButtonReactions(),
-        _ButtonPP(
-          path: "assets/logopp.png"
+         FadeInUp(
+          delay: const Duration(milliseconds: 200),
+          child: const _ButtonPP(
+            path: "assets/favorito.png",
+            paddingAll: 0,
+                 ),
+         ),
+        FadeInUp(
+          delay: const Duration(milliseconds: 400),
+          child: const _ButtonReactions()),
+        FadeInUp(
+          delay: const Duration(milliseconds: 600),
+          child: const _ButtonReactions()),
+        FadeInUp(
+          delay: const Duration(milliseconds: 800),
+          child: const _ButtonReactions()),
+        FadeInUp(
+          delay: const Duration(milliseconds: 1000),
+          child: _ButtonPP(
+            path: "assets/logopp.png",
+            paddingAll: GlobalResponsive.mediumFont(context),
+          ),
         ),
         /*FadeInUp(
           delay: const Duration(milliseconds: 500),
@@ -66,7 +80,8 @@ class _ButtonReactions extends StatelessWidget {
 class _ButtonPP extends StatelessWidget {
 
   final String path;
-  const _ButtonPP({required this.path});
+  final double paddingAll;
+  const _ButtonPP({required this.path, required this.paddingAll});
 
 
   @override
@@ -93,8 +108,7 @@ class _ButtonPP extends StatelessWidget {
           radius: GlobalResponsive.bigDiference(context) + 7,
           backgroundColor: Colors.transparent,
           child: Padding(
-            padding: EdgeInsets.all(
-                GlobalResponsive.mediumFont(context)),
+            padding: EdgeInsets.all(paddingAll),
             child: Image(
               image: AssetImage(path),
             ),
