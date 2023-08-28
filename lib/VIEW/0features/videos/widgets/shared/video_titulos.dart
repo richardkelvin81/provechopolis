@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:marquee_widget/marquee_widget.dart';
 
+import 'package:marquee_widget/marquee_widget.dart';
 import '../../../../domain/entities/video_post.dart';
 import '../../../../../global_responsive.dart';
 

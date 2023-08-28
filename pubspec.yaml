@@ -29,13 +29,6 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   animate_do: ^3.0.2
-<<<<<<< HEAD
-  avatar_glow: ^2.0.2
-  blurrycontainer: ^1.0.2
-  camera: ^0.10.5+3
-  cloud_firestore: ^4.9.0
-=======
->>>>>>> 5dbfba23647015ec6a6644d88430f5e606709fb7
   cupertino_icons: ^1.0.2
   curved_navigation_bar: ^1.0.3
   firebase_auth: ^4.8.0

@@ -64,7 +64,7 @@ class VideoScrollableView extends StatelessWidget {
   }
 
   Column segundaColumna() {
-    return const Column(
+    return  Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       DeliveryButton(),
