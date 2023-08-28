@@ -22,7 +22,7 @@ class VideoTitulos extends StatelessWidget {
         children: [
           
           Text(
-            video.description,
+            "${video.description} - Ver Detalles",
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
