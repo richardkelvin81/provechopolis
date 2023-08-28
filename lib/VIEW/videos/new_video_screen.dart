@@ -3,8 +3,10 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_ffmpeg/flutter_ffmpeg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
+import 'package:video_compress/video_compress.dart';
 import 'package:video_player/video_player.dart';
 
 
@@ -18,6 +20,8 @@ class NewVideoScreen extends StatefulWidget {
 
 class _NewVideoScreenState extends State<NewVideoScreen> {
     XFile? _videoFile;
+    final FlutterFFmpeg _flutterFFmpeg = FlutterFFmpeg();
+    
 
   Future<void> _pickVideoFromCamera() async {
     XFile? pickedVideo = await ImagePicker.platform.getVideo(source: ImageSource.camera);
@@ -38,15 +42,77 @@ class _NewVideoScreenState extends State<NewVideoScreen> {
       return;
     }
 
-    final firebase_storage.Reference storageRef =
-        firebase_storage.FirebaseStorage.instance.ref().child('videos/${DateTime.now()}.mp4');
 
-    final firebase_storage.UploadTask uploadTask = storageRef.putFile(File(_videoFile!.path));
+          
+      final compressedVideoPath = await VideoCompress.compressVideo(
+      _videoFile!.path,
+      quality: VideoQuality.DefaultQuality,
+      deleteOrigin: false,
+    );
 
-    await uploadTask.whenComplete(() {
-      print('Video uploaded');
+     final outputVideoPath =
+        _videoFile!.path.replaceAll('.mp4', '.webm');
+
+  final FlutterFFmpeg _flutterFFmpeg = new FlutterFFmpeg ();
+
+    _flutterFFmpeg.execute ("-i $compressedVideoPath -c:v libvpx-vp9 -b:v 0 -c:a libopus $outputVideoPath").then((rc) {
+
+      if (rc==1){
+
+        print('si comprimio');
+
+         final firebase_storage.Reference storageRef =
+        firebase_storage.FirebaseStorage.instance.ref().child('videos/${DateTime.now()}.webm');
+
+         storageRef.putFile(File(compressedVideoPath!.file!.path)).then((p0) {
+
+          print ('video subido');
+
+         });
+
+
+      }else{
+        print('No pudo comprimir');
+      }
+
+
+
     });
+          
+
+   
+  
+  
+   
+
+  //  await uploadTask.whenComplete(() {
+  //    print('Video uploaded');
+  //  });
   }
+
+  Future<void> compressAndConvertToWebM(String inputPath, String outputPath) async {
+  //  ffmpeg -i input_file.mp4 -c:v livpx -crf 10 -b:v 1M -c:a libvorbis output_file.webm
+  final arguments = [
+    '-i', inputPath,
+    '-c:v', 'libvpx',
+    '-crf', 10,
+    '-b:v', '1M',
+    '-c:a', 'libopus',
+    outputPath
+  ];
+
+  int result = await _flutterFFmpeg.executeWithArguments(arguments);
+
+  if (result == 0) {
+    print('Compresión y conversión a WebM exitosas');
+    
+  } else {
+    print('Error en la compresión y conversión a WebM');
+  }
+}
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
