@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -7,6 +8,7 @@ import 'package:provechopolis/VIEW/domain/entities/video_post.dart';
 import 'package:provechopolis/VIEW/0features/videos/widgets/video/full_screen_player.dart';
 import 'package:provechopolis/global_responsive.dart';
 import 'delivery_button.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 
 class VideoScrollableView extends StatelessWidget {
   final List<VideoPost> videos;
@@ -24,9 +26,24 @@ class VideoScrollableView extends StatelessWidget {
           return Stack(
             children: [
               SizedBox.expand(
-                child: FullScreenPlayer(
-                  videoUrl: videoPost.videoUrl,
-                ),
+                child: FutureBuilder<File>(
+                    future: DefaultCacheManager().getSingleFile(videoPost.videoUrl),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.done) {
+                        if (snapshot.hasError) {
+                          return Center(child: Text('Error al cargar el video.'));
+                        }
+                        if (!snapshot.hasData || snapshot.data == null) {
+                          return Center(child: Text('No se pudo cargar el video.'));
+                        }
+                        return FullScreenPlayer(
+                          videoUrl: snapshot.data!.path,
+                          );
+                      } else {
+                        return Center(child: CircularProgressIndicator());
+                      }
+                    },
+                  ),
               ),
               /* INSTRUCTIVA DE WIDGETS DE LA PANTALLA DE REELS */
               // DESDE ESTE PUNTO SE CONFORMAN DOS COLUMNAS EN UNA FILA
