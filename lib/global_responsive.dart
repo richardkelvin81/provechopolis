@@ -8,13 +8,13 @@ class GlobalResponsive {
     } else if (screenWidth >= 500) {
       return 14.0;
     } else if (screenWidth >= 450) {
-      return 13.0;
+      return 12.5;
     } else if (screenWidth >= 400) {
-      return 12.0;
-    } else if (screenWidth >= 350) {
       return 11.0;
+    } else if (screenWidth >= 350) {
+      return 8.5;
     } else {
-      return 10.0;
+      return 9;
     }
   }
 
@@ -63,11 +63,11 @@ class GlobalResponsive {
     } else if (screenWidth >= 400) {
       return 25.0;
     } else if (screenWidth >= 350) {
-      return 21.0;
+      return 19.5;
     } else if (screenWidth >= 300) {
       return 17.0;
     } else {
-      return 13.0;
+      return 14.5;
     }
   }
 
