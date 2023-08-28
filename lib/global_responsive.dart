@@ -59,6 +59,23 @@ class GlobalResponsive {
     if (screenWidth >= 500) {
       return 33.0;
     } else if (screenWidth >= 450) {
+      return 29.0;
+    } else if (screenWidth >= 400) {
+      return 25.0;
+    } else if (screenWidth >= 350) {
+      return 21.0;
+    } else if (screenWidth >= 300) {
+      return 17.0;
+    } else {
+      return 13.0;
+    }
+  }
+
+  static double bigDiferenceBottomBar(BuildContext context) {
+    final double screenWidth = MediaQuery.of(context).size.width;
+    if (screenWidth >= 500) {
+      return 33.0;
+    } else if (screenWidth >= 450) {
       return 30.0;
     } else if (screenWidth >= 400) {
       return 27.0;
