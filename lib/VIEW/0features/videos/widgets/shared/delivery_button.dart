@@ -11,6 +11,9 @@ class DeliveryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Column(
       children: [
+         _ButtonPP(
+          path: "assets/favorito.png"
+        ),
         _ButtonReactions(),
         _ButtonReactions(),
         _ButtonReactions(),
@@ -50,7 +53,7 @@ class _ButtonReactions extends StatelessWidget {
             width: 1,
             color: Colors.white,)),
         child: CircleAvatar(
-          radius: GlobalResponsive.bigDiference(context) + 7.5,
+          radius: GlobalResponsive.bigDiference(context) + 7,
           backgroundColor: Colors.black87,
           child: const Icon(Icons.favorite_sharp, color: Colors.white),
         ),
@@ -63,7 +66,7 @@ class _ButtonReactions extends StatelessWidget {
 class _ButtonPP extends StatelessWidget {
 
   final String path;
-  const _ButtonPP({super.key, required this.path});
+  const _ButtonPP({required this.path});
 
 
   @override
@@ -87,7 +90,7 @@ class _ButtonPP extends StatelessWidget {
           )]
         ),
         child: CircleAvatar(
-          radius: GlobalResponsive.bigDiference(context) + 7.5,
+          radius: GlobalResponsive.bigDiference(context) + 7,
           backgroundColor: Colors.transparent,
           child: Padding(
             padding: EdgeInsets.all(
