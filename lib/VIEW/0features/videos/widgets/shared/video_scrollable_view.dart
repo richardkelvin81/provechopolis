@@ -69,7 +69,7 @@ class VideoScrollableView extends StatelessWidget {
                     ),
                     child: MaterialButton(
                       onPressed: () {},
-                      child: const Padding(
+                      child:  Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Row(
                           children: [
@@ -89,7 +89,7 @@ class VideoScrollableView extends StatelessWidget {
   }
 
   Column segundaColumna() {
-    return const Column(
+    return  Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       DeliveryButton(),
