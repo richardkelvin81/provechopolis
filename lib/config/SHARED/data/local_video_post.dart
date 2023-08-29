@@ -2,14 +2,14 @@ List<Map<String, dynamic>> videoPosts = [
   {
     'name': 'Picante De Gallina Express',
     'description': 'La Suegra Restaurante',
-    'videoUrl': '',
+    'videoUrl': 'https://www.tiktok.com/@alyssaabina/video/7185272890261097774?is_from_webapp=1&sender_device=pc&web_id=7272577911781131781',
     'likes': 34213,
     'views': 54623,
   },
   {
     'name': 'Platón de spaguetti relleno',
     'description': 'Cantares y Cantaritos',
-    'videoUrl': 'https://firebasestorage.googleapis.com/v0/b/provechopolis.appspot.com/o/videos%2F2023-08-28%2016%3A18%3A40.028435.webm?alt=media&token=cc863e46-2086-4f06-8a12-6c721a8b7e04',
+    'videoUrl': 'https://www.tiktok.com/@sukamukbang.official/video/7263105669564288262?is_from_webapp=1&sender_device=pc&web_id=7272577911781131781',
     'likes': 23332,
     'views': 2232992,
   },

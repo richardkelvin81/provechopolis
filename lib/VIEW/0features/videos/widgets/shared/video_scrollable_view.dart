@@ -86,7 +86,7 @@ class VideoScrollableView extends StatelessWidget {
                     ),
                     child: MaterialButton(
                       onPressed: () {},
-                      child:  Padding(
+                      child: const Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Row(
                           children: [
