@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 import 'package:animate_do/animate_do.dart';
@@ -11,13 +13,13 @@ class DeliveryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-         FadeInUp(
+        FadeInUp(
           delay: const Duration(milliseconds: 200),
           child: const _ButtonPP(
             path: "assets/favorito.png",
             paddingAll: 0,
-                 ),
-         ),
+          ),
+        ),
         FadeInUp(
           delay: const Duration(milliseconds: 400),
           child: const _ButtonReactions()),
@@ -58,18 +60,58 @@ class _ButtonReactions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        top: GlobalResponsive.smallFont(context) - 6
+        top: GlobalResponsive.smallFont(context) + 5
       ),
-      child: DecoratedBox(
+      child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(90),
           border: Border.all(
             width: 1,
             color: Colors.white,)),
-        child: CircleAvatar(
-          radius: GlobalResponsive.bigDiference(context) + 7,
-          backgroundColor: Colors.black87,
-          child: const Icon(Icons.favorite_sharp, color: Colors.white),
+        child: Stack(
+          clipBehavior: Clip.none,
+          children: [
+            CircleAvatar(
+              radius: GlobalResponsive.bigDiference(context) + 7,
+              backgroundColor: const Color(0x56000000),
+              child: const Icon(Icons.favorite_sharp, color: Colors.white),
+            ),
+            Positioned(
+              bottom: -10,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(90),
+                  boxShadow: [ BoxShadow(
+                    blurRadius: 20,
+                    color: Colors.white.withOpacity(0.3)
+                  ) ],
+                ),
+                child: ClipRRect(
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(
+                      sigmaX: 4, sigmaY: 4,
+                    ),
+                    child: Container(
+                      padding: const EdgeInsets.all(7),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.white
+                        ),
+                        
+                        borderRadius: BorderRadius.circular(90),
+                        color: const Color(0x62000000),
+                      ),
+                      child: const Text('12 K', style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Barlow Bold',
+                        fontSize: 11
+                      ),),
+                    ),
+                  ),
+                ),
+              ),
+            )
+          ],
         ),
       ),
     );
@@ -88,7 +130,7 @@ class _ButtonPP extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        top: GlobalResponsive.smallFont(context) - 6
+        top: GlobalResponsive.smallFont(context) + 5
       ),
       child: DecoratedBox(
         decoration: BoxDecoration(
@@ -96,7 +138,7 @@ class _ButtonPP extends StatelessWidget {
           gradient: const LinearGradient(
             colors: [
               Color(0xFFF8C358),
-              Color.fromARGB(255, 240, 150, 76),
+              Color(0xFFF0964C),
             ]),
           boxShadow: [BoxShadow(
             blurRadius: 15,
