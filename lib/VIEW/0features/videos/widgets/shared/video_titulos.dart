@@ -28,7 +28,7 @@ class VideoTitulos extends StatelessWidget {
             style: TextStyle(
                 fontWeight: FontWeight.w400,
                 color: Colors.white,
-                fontSize: GlobalResponsive.smallFont(context) - 3.5),
+                fontSize: GlobalResponsive.smallFont(context) - 4.2),
           ),
           const SizedBox(height: 1.2),
           Marquee(
@@ -42,7 +42,7 @@ class VideoTitulos extends StatelessWidget {
               style: TextStyle(
                   fontFamily: 'Barlow Bold',
                   color: Colors.white,
-                  fontSize: GlobalResponsive.smallFont(context) + 2.5),
+                  fontSize: GlobalResponsive.smallFont(context) + 2),
               ),
           ),
           
