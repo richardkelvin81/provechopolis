@@ -27,9 +27,12 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
+        
         title: 'Material App',
         theme: AppTheme.getTheme(),
-        home: HomePublicScreen()
+        home: MediaQuery(
+          data: MediaQuery.of(context).copyWith(textScaleFactor: 1.1),
+          child: HomePublicScreen())
       ),
     );
   }
