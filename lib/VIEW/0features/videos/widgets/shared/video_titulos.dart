@@ -28,7 +28,7 @@ class VideoTitulos extends StatelessWidget {
             style: TextStyle(
                 fontWeight: FontWeight.w400,
                 color: Colors.white,
-                fontSize: GlobalResponsive.smallFont(context) - 4.2),
+                fontSize: GlobalResponsive.paddingText(context) - 4.5),
           ),
           const SizedBox(height: 1.2),
           Marquee(
