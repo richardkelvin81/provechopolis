@@ -17,10 +17,10 @@ class DiscoverScreen extends StatelessWidget {
         appBar: AppBar(
             elevation: 0,
             backgroundColor: Colors.transparent,
-            title: Padding(
+            title: const Padding(
               padding: EdgeInsets.only(
                   top: 5,
-                  bottom: GlobalResponsive.bigDiference(context) - 20),
+              ),
               child: const _CustomAppBar(),
               ),
             ),
@@ -60,7 +60,7 @@ class _CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Padding(
-      padding: EdgeInsets.all(GlobalResponsive.bigDiference(context) - 7),
+      padding: EdgeInsets.all(GlobalResponsive.bigDiference(context)),
       child: Row(
         children: [
           Icon(

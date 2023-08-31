@@ -1,9 +1,33 @@
 import 'dart:ui';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:animate_do/animate_do.dart';
 import 'package:provechopolis/global_responsive.dart';
+
+
+ void _showDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return CupertinoAlertDialog(
+          title: Text('Dialog Title'),
+          content: Text('This is the content of the dialog.'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('Close'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+
 
 
 class DeliveryButton extends StatelessWidget {
@@ -110,7 +134,8 @@ class _ButtonReactions extends StatelessWidget {
                   ),
                 ),
               ),
-            )
+            ),
+            
           ],
         ),
       ),

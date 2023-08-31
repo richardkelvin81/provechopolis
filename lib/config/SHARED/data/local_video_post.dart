@@ -30,7 +30,7 @@ List<Map<String, dynamic>> videoPosts = [
   {
     'name': 'Mi Video',
     'description': '#paravos #bocado #tortilla #increiblereceta',
-    'videoUrl': 'https://firebasestorage.googleapis.com/v0/b/provechopolis.appspot.com/o/videos%2F2023-08-28%2016%3A24%3A49.946347.webm?alt=media&token=3bb4d139-9fa8-4697-9c0e-9ad0d6d178ef',
+    'videoUrl': '',
     'likes': 99065,
     'views': 324345,
   },

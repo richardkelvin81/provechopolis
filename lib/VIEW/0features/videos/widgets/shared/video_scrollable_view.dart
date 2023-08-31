@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:ui';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:provechopolis/VIEW/0features/videos/widgets/shared/blur_title.dart';
@@ -9,6 +10,10 @@ import 'package:provechopolis/VIEW/0features/videos/widgets/video/full_screen_pl
 import 'package:provechopolis/global_responsive.dart';
 import 'delivery_button.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
+
+
+
+ 
 
 class VideoScrollableView extends StatelessWidget {
   final List<VideoPost> videos;
@@ -55,7 +60,7 @@ class VideoScrollableView extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    primerColumna(videoPost),
+                    primerColumna(videoPost, context),
                     SizedBox(width: GlobalResponsive.bigDiference(context) - 7,),
                     segundaColumna(),
                     SizedBox(width: GlobalResponsive.bigDiference(context),),
@@ -68,8 +73,7 @@ class VideoScrollableView extends StatelessWidget {
         });
   }
 
-
-  Expanded primerColumna(VideoPost videoPost) {
+  Expanded primerColumna(VideoPost videoPost, context) {
     return Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -85,7 +89,9 @@ class VideoScrollableView extends StatelessWidget {
                       sigmaY: 4,
                     ),
                     child: MaterialButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        
+                      },
                       child: const Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Row(
@@ -106,7 +112,7 @@ class VideoScrollableView extends StatelessWidget {
   }
 
   Column segundaColumna() {
-    return  Column(
+    return const Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       DeliveryButton(),
