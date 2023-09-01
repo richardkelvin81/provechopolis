@@ -1,34 +1,9 @@
 import 'dart:ui';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'package:animate_do/animate_do.dart';
+import 'package:provechopolis/VIEW/0features/videos/widgets/shared/number_likes.dart';
 import 'package:provechopolis/global_responsive.dart';
-
-
- void _showDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return CupertinoAlertDialog(
-          title: Text('Dialog Title'),
-          content: Text('This is the content of the dialog.'),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text('Close'),
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-
-
 
 class DeliveryButton extends StatelessWidget {
   const DeliveryButton({super.key});
@@ -61,9 +36,9 @@ class DeliveryButton extends StatelessWidget {
           )),
         FadeInUp(
           delay: const Duration(milliseconds: 1000),
-          child: _ButtonPP(
+          child: const _ButtonPP(
             path: "assets/logopp.png",
-            paddingAll: GlobalResponsive.mediumFont(context),
+            paddingAll: 13,
           ),
         ),
       ],
@@ -81,7 +56,7 @@ class _ButtonReactions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        top: GlobalResponsive.smallFont(context) + 5
+        top: GlobalResponsive.smallFont(context) + 7.5
       ),
       child: Container(
         decoration: BoxDecoration(
@@ -90,48 +65,15 @@ class _ButtonReactions extends StatelessWidget {
             width: 1,
             color: Colors.white,)),
         child: Stack(
+          alignment: Alignment.bottomCenter,
           clipBehavior: Clip.none,
           children: [
             CircleAvatar(
               radius: GlobalResponsive.bigDiference(context) + 7,
-              backgroundColor: const Color(0x56000000),
+              backgroundColor: Color(0x29000000),
               child: Icon(icon, color: Colors.white),
             ),
-            Positioned(
-              bottom: -10,
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(90),
-                  boxShadow: [ BoxShadow(
-                    blurRadius: 20,
-                    color: Colors.white.withOpacity(0.3)
-                  ) ],
-                ),
-                child: ClipRRect(
-                  child: BackdropFilter(
-                    filter: ImageFilter.blur(
-                      sigmaX: 4, sigmaY: 4,
-                    ),
-                    child: Container(
-                      padding: const EdgeInsets.all(7),
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.white
-                        ),
-                        
-                        borderRadius: BorderRadius.circular(90),
-                        color: const Color(0x62000000),
-                      ),
-                      child: const Text('12 K', style: TextStyle(
-                        color: Colors.white,
-                        fontFamily: 'Barlow Bold',
-                        fontSize: 11
-                      ),),
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            const NumberLikes(),
             
           ],
         ),
@@ -168,15 +110,19 @@ class _ButtonPP extends StatelessWidget {
 
           )]
         ),
-        child: CircleAvatar(
-          radius: GlobalResponsive.bigDiference(context) + 7,
-          backgroundColor: Colors.transparent,
-          child: Padding(
-            padding: EdgeInsets.all(paddingAll),
-            child: Image(
-              image: AssetImage(path),
+        child: Stack(
+          children: [
+            CircleAvatar(
+              radius: GlobalResponsive.bigDiference(context) + 7,
+              backgroundColor: Colors.transparent,
+              child: Padding(
+                padding: EdgeInsets.all(paddingAll),
+                child: Image(
+                  image: AssetImage(path),
+                ),
+              )
             ),
-          )
+          ],
         ),
       ),
     );

@@ -21,7 +21,7 @@ class BlurTitle extends StatelessWidget {
             delay: const Duration(milliseconds: 250),
       child: Padding(
         padding: EdgeInsets.only(
-          left: GlobalResponsive.bigDiference(context) - 7,),
+          left: GlobalResponsive.bigDiference(context) ,),
         child: DecoratedBox(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(90),
@@ -93,7 +93,8 @@ class AvatarImage extends StatelessWidget {
                 children: [
                   rowStars(context),
                   rowStars(context),
-                  
+                  rowStars(context),
+                  rowStars(context),
                 ],
               ),
             )
