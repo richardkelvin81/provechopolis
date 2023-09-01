@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 
 import 'package:provechopolis/VIEW/0features/videos/widgets/shared/blur_title.dart';
 import 'package:provechopolis/VIEW/domain/entities/video_post.dart';
@@ -90,8 +91,13 @@ class VideoScrollableView extends StatelessWidget {
                       height: 50,
                       decoration: BoxDecoration(
                         color: const Color(0x55000000),
-                        border: Border.all(
-                          color: Color.fromARGB(255, 255, 255, 255),
+                        border: const GradientBoxBorder(
+                          gradient: LinearGradient(
+                            colors: [
+                              Colors.white,
+                              Colors.transparent,
+                            ]),
+                          width: 1.5,
                         ),
                         borderRadius: BorderRadius.circular(
                           GlobalResponsive.smallFont(context) + 2
