@@ -3,10 +3,13 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:provechopolis/VIEW/0features/videos/widgets/shared/number_likes.dart';
+import 'package:provechopolis/VIEW/domain/entities/video_post.dart';
 import 'package:provechopolis/global_responsive.dart';
 
 class DeliveryButton extends StatelessWidget {
-  const DeliveryButton({super.key});
+  const DeliveryButton({super.key, required this.video});
+
+  final VideoPost video;
 
   @override
   Widget build(BuildContext context) {
@@ -21,18 +24,24 @@ class DeliveryButton extends StatelessWidget {
         ),
         FadeInUp(
           delay: const Duration(milliseconds: 400),
-          child: const _ButtonReactions(
-            icon: Icons.favorite_border_outlined,
+          child: _ButtonReactions(
+            context: context,
+            icon: Icons.favorite_border_outlined, 
+            numberReactions: video.likes,
           )),
         FadeInUp(
           delay: const Duration(milliseconds: 600),
-          child: const _ButtonReactions(
-             icon: Icons.insert_comment_outlined,
+          child: _ButtonReactions(
+            context: context,
+             icon: Icons.insert_comment_outlined, 
+             numberReactions: video.likes,
           )),
         FadeInUp(
           delay: const Duration(milliseconds: 800),
-          child: const _ButtonReactions(
+          child: _ButtonReactions(
+            context: context,
              icon: Icons.share_outlined,
+             numberReactions: video.likes,
           )),
         FadeInUp(
           delay: const Duration(milliseconds: 1000),
@@ -49,8 +58,15 @@ class DeliveryButton extends StatelessWidget {
 
 class _ButtonReactions extends StatelessWidget {
 
+ 
+  const _ButtonReactions({
+    required this.icon,  
+    required BuildContext context, 
+    required this.numberReactions
+  });
+
   final IconData icon;
-  const _ButtonReactions({required this.icon});
+  final int numberReactions;
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +89,10 @@ class _ButtonReactions extends StatelessWidget {
               backgroundColor: Color(0x29000000),
               child: Icon(icon, color: Colors.white),
             ),
-            const NumberLikes(),
+            NumberLikes(
+              context: context,
+              reactions: numberReactions
+            ),
             
           ],
         ),

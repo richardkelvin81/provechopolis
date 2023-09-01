@@ -1,5 +1,3 @@
-
-
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -7,8 +5,9 @@ import 'package:flutter/material.dart';
 import '../../../../../global_responsive.dart';
 
 class NumberLikes extends StatelessWidget {
+  final int reactions;
   const NumberLikes({
-    super.key,
+    super.key, required this.reactions, required BuildContext context,
   });
 
   @override
@@ -32,7 +31,7 @@ class NumberLikes extends StatelessWidget {
               borderRadius: BorderRadius.circular(90),
               color: const Color(0x62000000),
             ),
-            child: Text('12 K', style: TextStyle(
+            child: Text("$reactions", style: TextStyle(
               color: Colors.white,
               fontFamily: 'Barlow Bold',
               fontSize: GlobalResponsive.verySmallFont(context) + 1

@@ -63,7 +63,7 @@ class VideoScrollableView extends StatelessWidget {
                   children: [
                     primerColumna(videoPost, context),
                     SizedBox(width: GlobalResponsive.bigDiference(context) - 7,),
-                    segundaColumna(),
+                    segundaColumna(videoPost, context),
                     SizedBox(width: GlobalResponsive.bigDiference(context),),
                   ],
                 ),
@@ -97,11 +97,11 @@ class VideoScrollableView extends StatelessWidget {
           );
   }
 
-  Column segundaColumna() {
-    return const Column(
+  Column segundaColumna(VideoPost videoPost, context) {
+    return Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      DeliveryButton(),
+                      DeliveryButton(video: videoPost,),
                     ],
                   );
   }
