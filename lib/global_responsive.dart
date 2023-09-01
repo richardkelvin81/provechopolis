@@ -91,15 +91,15 @@ class GlobalResponsive {
   static double paddingText(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
     if (screenWidth >= 1200) {
-      return 12.0;
+      return 13.5;
     } else if (screenWidth >= 500) {
       return 14.0;
     } else if (screenWidth >= 450) {
       return 13;
-    } else if (screenWidth >= 350) {
-      return 12;
     } else {
-      return 11;
+      return 13;
     }
   }
+
+  
 }

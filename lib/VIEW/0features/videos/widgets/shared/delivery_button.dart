@@ -46,13 +46,19 @@ class DeliveryButton extends StatelessWidget {
         ),
         FadeInUp(
           delay: const Duration(milliseconds: 400),
-          child: const _ButtonReactions()),
+          child: const _ButtonReactions(
+            icon: Icons.favorite_border_outlined,
+          )),
         FadeInUp(
           delay: const Duration(milliseconds: 600),
-          child: const _ButtonReactions()),
+          child: const _ButtonReactions(
+             icon: Icons.insert_comment_outlined,
+          )),
         FadeInUp(
           delay: const Duration(milliseconds: 800),
-          child: const _ButtonReactions()),
+          child: const _ButtonReactions(
+             icon: Icons.share_outlined,
+          )),
         FadeInUp(
           delay: const Duration(milliseconds: 1000),
           child: _ButtonPP(
@@ -60,17 +66,6 @@ class DeliveryButton extends StatelessWidget {
             paddingAll: GlobalResponsive.mediumFont(context),
           ),
         ),
-        /*FadeInUp(
-          delay: const Duration(milliseconds: 500),
-          child: const IconAnimated(icon: Icons.favorite_rounded,)),
-        FadeInUp(
-          delay: const Duration(milliseconds: 650),
-          child: const IconAnimated(icon: Icons.comment,)),
-        FadeInUp(
-          delay: const Duration(milliseconds: 800),
-          child: const IconAnimated(icon: Icons.share,)),
-        const _ButtonPP(),*/
-          
       ],
     );
   }
@@ -78,7 +73,9 @@ class DeliveryButton extends StatelessWidget {
 
 
 class _ButtonReactions extends StatelessWidget {
-  const _ButtonReactions();
+
+  final IconData icon;
+  const _ButtonReactions({required this.icon});
 
   @override
   Widget build(BuildContext context) {
@@ -98,7 +95,7 @@ class _ButtonReactions extends StatelessWidget {
             CircleAvatar(
               radius: GlobalResponsive.bigDiference(context) + 7,
               backgroundColor: const Color(0x56000000),
-              child: const Icon(Icons.favorite_sharp, color: Colors.white),
+              child: Icon(icon, color: Colors.white),
             ),
             Positioned(
               bottom: -10,
