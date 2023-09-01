@@ -45,7 +45,7 @@ class VideoScrollableView extends StatelessWidget {
                           videoUrl: snapshot.data!.path,
                           );
                       } else {
-                        return Center(child: CircularProgressIndicator());
+                        return const Center(child: CircularProgressIndicator());
                       }
                     },
                   ),
@@ -67,6 +67,62 @@ class VideoScrollableView extends StatelessWidget {
                   ],
                 ),
               ),
+              Positioned(
+                left: -30,
+                bottom: GlobalResponsive.bigDiference(context) + 225,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(
+                      GlobalResponsive.smallFont(context) + 2
+                    ),
+                    boxShadow: const [BoxShadow(
+                      blurStyle: BlurStyle.outer,
+                      color: Color(0x4FFFFFFF),
+                      blurRadius: 18,
+                    )],
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(
+                      GlobalResponsive.smallFont(context) + 2
+                    ),
+                    child: Container(
+                      clipBehavior: Clip.antiAlias,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: const Color(0x55000000),
+                        border: Border.all(
+                          color: Color.fromARGB(255, 255, 255, 255),
+                        ),
+                        borderRadius: BorderRadius.circular(
+                          GlobalResponsive.smallFont(context) + 2
+                        ),
+                      ),
+                      child: MaterialButton(
+                        onPressed: () {},
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 35, right: 10),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Text("Pedir Delivery", style: TextStyle(
+                                fontFamily: "Barlow Bold",
+                                color: Colors.white,
+                                fontSize: GlobalResponsive.smallFont(context)
+                              ),),
+                              Text("Pide Servicio a Domicilio,\n sin contratiempos", 
+                                style: TextStyle(
+                                  fontFamily: "Barlow Medium",
+                                  color: Colors.white,
+                                  fontSize: GlobalResponsive.smallFont(context) - 4
+                              ),),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
                
               ],
           );
@@ -81,30 +137,6 @@ class VideoScrollableView extends StatelessWidget {
               children: [
                 const Spacer(),
                 //TopsBlurTitle(),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(90),
-                  child: BackdropFilter(
-                    filter: ImageFilter.blur(
-                      sigmaX: 4,
-                      sigmaY: 4,
-                    ),
-                    child: MaterialButton(
-                      onPressed: () {
-                        
-                      },
-                      child: const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Row(
-                          children: [
-                            Icon(Icons.social_distance),
-                            SizedBox(width: 6,),
-                            Text("Seguir a este restaurante"),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
                 BlurTitle(videoPost: videoPost),
               ],
             ),
