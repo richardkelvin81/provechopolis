@@ -6,8 +6,11 @@ import 'package:provechopolis/VIEW/0features/videos/widgets/shared/number_likes.
 import 'package:provechopolis/VIEW/domain/entities/video_post.dart';
 import 'package:provechopolis/global_responsive.dart';
 
-class DeliveryButton extends StatelessWidget {
-  const DeliveryButton({super.key, required this.video});
+class ButtonsReactions extends StatelessWidget {
+  const ButtonsReactions({
+    super.key, 
+    required this.video, 
+  });
 
   final VideoPost video;
 
@@ -17,9 +20,12 @@ class DeliveryButton extends StatelessWidget {
       children: [
         FadeInUp(
           delay: const Duration(milliseconds: 200),
-          child: const _ButtonPP(
+          child: _ButtonPP(
             path: "assets/favorito.png",
             paddingAll: 0,
+            numberReactionsYellow: NumberLikes(
+              reactions: video.views
+            ),
           ),
         ),
         FadeInUp(
@@ -34,7 +40,7 @@ class DeliveryButton extends StatelessWidget {
           child: _ButtonReactions(
             context: context,
              icon: Icons.insert_comment_outlined, 
-             numberReactions: video.likes,
+             numberReactions: video.views,
           )),
         FadeInUp(
           delay: const Duration(milliseconds: 800),
@@ -86,7 +92,7 @@ class _ButtonReactions extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: GlobalResponsive.bigDiference(context) + 7,
-              backgroundColor: Color(0x29000000),
+              backgroundColor: const Color(0x29000000),
               child: Icon(icon, color: Colors.white),
             ),
             NumberLikes(
@@ -105,7 +111,11 @@ class _ButtonPP extends StatelessWidget {
 
   final String path;
   final double paddingAll;
-  const _ButtonPP({required this.path, required this.paddingAll});
+  final Widget? numberReactionsYellow;
+  const _ButtonPP({
+    required this.path, 
+    required this.paddingAll, this.numberReactionsYellow, 
+  });
 
 
   @override
@@ -129,6 +139,8 @@ class _ButtonPP extends StatelessWidget {
           )]
         ),
         child: Stack(
+          clipBehavior: Clip.none,
+          alignment: Alignment.bottomCenter,
           children: [
             CircleAvatar(
               radius: GlobalResponsive.bigDiference(context) + 7,
@@ -140,6 +152,9 @@ class _ButtonPP extends StatelessWidget {
                 ),
               )
             ),
+            SizedBox(
+              child: numberReactionsYellow)
+            
           ],
         ),
       ),

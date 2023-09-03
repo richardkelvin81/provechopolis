@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:provechopolis/config/helpers/human_formats.dart';
 
 import '../../../../../global_responsive.dart';
 
@@ -31,7 +32,7 @@ class NumberLikes extends StatelessWidget {
               borderRadius: BorderRadius.circular(90),
               color: const Color(0x62000000),
             ),
-            child: Text("$reactions", style: TextStyle(
+            child: Text(HumanFormats.humanReadableNumber(reactions.toDouble()), style: TextStyle(
               color: Colors.white,
               fontFamily: 'Barlow Bold',
               fontSize: GlobalResponsive.verySmallFont(context) + 1

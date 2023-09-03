@@ -1,20 +1,15 @@
+import 'package:flutter/material.dart';
+
 import 'dart:io';
 import 'dart:ui';
 
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:gradient_borders/box_borders/gradient_box_border.dart';
-
 import 'package:provechopolis/VIEW/0features/videos/widgets/shared/blur_title.dart';
+import 'package:provechopolis/VIEW/0features/videos/widgets/shared/buttons_reactions.dart';
 import 'package:provechopolis/VIEW/domain/entities/video_post.dart';
 import 'package:provechopolis/VIEW/0features/videos/widgets/video/full_screen_player.dart';
 import 'package:provechopolis/global_responsive.dart';
-import 'delivery_button.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 
-
-
- 
 
 class VideoScrollableView extends StatelessWidget {
   final List<VideoPost> videos;
@@ -37,10 +32,10 @@ class VideoScrollableView extends StatelessWidget {
                     builder: (context, snapshot) {
                       if (snapshot.connectionState == ConnectionState.done) {
                         if (snapshot.hasError) {
-                          return Center(child: Text('Error al cargar el video.'));
+                          return const Center(child: Text('Error al cargar el video.'));
                         }
                         if (!snapshot.hasData || snapshot.data == null) {
-                          return Center(child: Text('No se pudo cargar el video.'));
+                          return const Center(child: Text('No se pudo cargar el video.'));
                         }
                         return FullScreenPlayer(
                           videoUrl: snapshot.data!.path,
@@ -75,35 +70,37 @@ class VideoScrollableView extends StatelessWidget {
 
   Expanded primerColumna(VideoPost videoPost, context) {
     return Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Spacer(),
-                //TopsBlurTitle(),
-                Padding(
-                  padding: EdgeInsets.only(
-                    left: GlobalResponsive.bigDiference(context) - 7,),
-                  child: const _BotonPedirDelivery(
-                    bottom: 225,
-                    title: "Solicitar Delivery",
-                    subtitle: "Solicita un Servicio de Entrega",
-                  ),
-                ),
-                const SizedBox(height: 30),
-                BlurTitle(videoPost: videoPost),
-              ],
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Spacer(),
+          //TopsBlurTitle(),
+          Padding(
+            padding: EdgeInsets.only(
+              left: GlobalResponsive.bigDiference(context) - 7,),
+            child: const _BotonPedirDelivery(
+              bottom: 225,
+              title: "Solicitar Delivery",
+              subtitle: "Solicita un Servicio de Entrega",
             ),
-          );
+          ),
+          const SizedBox(height: 30),
+
+          const SizedBox(height: 5),
+          BlurTitle(videoPost: videoPost),
+        ],
+      ),
+    );
   }
 
   Column segundaColumna(VideoPost videoPost, context) {
     return Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      DeliveryButton(video: videoPost,),
-                    ],
-                  );
+      mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          ButtonsReactions(video: videoPost,),
+        ],
+      );
   }
 }
 
@@ -114,7 +111,10 @@ class _BotonPedirDelivery extends StatelessWidget {
   final double bottom;
 
   const _BotonPedirDelivery({
-    super.key, required this.title, required this.subtitle, required this.bottom,
+    super.key, 
+    required this.title, 
+    required this.subtitle, 
+    required this.bottom,
   });
 
   @override
