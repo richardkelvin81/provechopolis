@@ -90,7 +90,6 @@ class _ButtonReactions extends StatelessWidget {
               child: Icon(icon, color: Colors.white),
             ),
             NumberLikes(
-              context: context,
               reactions: numberReactions
             ),
             

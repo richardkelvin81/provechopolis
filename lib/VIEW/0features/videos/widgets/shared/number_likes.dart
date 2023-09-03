@@ -7,7 +7,7 @@ import '../../../../../global_responsive.dart';
 class NumberLikes extends StatelessWidget {
   final int reactions;
   const NumberLikes({
-    super.key, required this.reactions, required BuildContext context,
+    super.key, required this.reactions,
   });
 
   @override
