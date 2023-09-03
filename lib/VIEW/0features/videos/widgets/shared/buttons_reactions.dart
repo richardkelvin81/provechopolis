@@ -23,9 +23,7 @@ class ButtonsReactions extends StatelessWidget {
           child: _ButtonPP(
             path: "assets/favorito.png",
             paddingAll: 0,
-            numberReactionsYellow: NumberLikes(
-              reactions: video.views
-            ),
+            numberReactionsYellow: video.views
           ),
         ),
         FadeInUp(
@@ -51,10 +49,12 @@ class ButtonsReactions extends StatelessWidget {
           )),
         FadeInUp(
           delay: const Duration(milliseconds: 1000),
-          child: const _ButtonPP(
+          child: _ButtonPP(
             path: "assets/logopp.png",
             paddingAll: 13,
+            numberReactionsYellow: video.likes,
           ),
+          
         ),
       ],
     );
@@ -111,10 +111,11 @@ class _ButtonPP extends StatelessWidget {
 
   final String path;
   final double paddingAll;
-  final Widget? numberReactionsYellow;
+  final int numberReactionsYellow;
   const _ButtonPP({
     required this.path, 
-    required this.paddingAll, this.numberReactionsYellow, 
+    required this.paddingAll, 
+    required this.numberReactionsYellow, 
   });
 
 
@@ -152,8 +153,9 @@ class _ButtonPP extends StatelessWidget {
                 ),
               )
             ),
-            SizedBox(
-              child: numberReactionsYellow)
+            NumberLikes(
+              reactions: numberReactionsYellow
+            ),
             
           ],
         ),
