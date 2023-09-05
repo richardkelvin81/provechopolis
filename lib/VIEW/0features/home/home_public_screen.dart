@@ -8,6 +8,7 @@ import 'package:provechopolis/VIEW/0features/user/user_screen.dart';
 import 'package:provechopolis/VIEW/0features/videos/screens/discover/discover_screen.dart';
 import 'package:provechopolis/VIEW/videos/new_video_screen.dart';
 import 'package:provechopolis/global_responsive.dart';
+import 'package:rive/rive.dart';
 
 class HomePublicScreen extends StatefulWidget {
   // static const routeName = '/BottomNavBar';
@@ -37,29 +38,31 @@ class _HomePublicScreenState extends State<HomePublicScreen> {
             index: _page,
             children: screens
           ),
-          bottomNavigationBar: CurvedNavigationBar(
-            key: _bottomNavigationKey,
-            onTap: (index) {
-              setState(() {
-                _page = index;
-              });
-            },
-            index: _page,
-            height: GlobalResponsive.bigDiferenceBottomBar(context) + 28,
-            items: [
-              Icon(Icons.search_rounded, color: Colors.white, size: GlobalResponsive.bigDiferenceBottomBar(context)),
-              Icon(Icons.favorite_rounded, color: Colors.white, size: GlobalResponsive.bigDiferenceBottomBar(context)),
-              Icon(Icons.add_reaction_sharp, color: Colors.white, size: GlobalResponsive.bigDiferenceBottomBar(context)),
-              Icon(Icons.notifications_active, color: Colors.white, size: GlobalResponsive.bigDiferenceBottomBar(context)),
-              Icon(Icons.supervised_user_circle, color: Colors.white, size: GlobalResponsive.bigDiferenceBottomBar(context)),
-            ],
-            color: Colors.black54,
-            buttonBackgroundColor: Colors.black54,
-            backgroundColor: Colors.transparent,
-            animationCurve: Curves.easeInOut,
-            animationDuration: const Duration(milliseconds: 500),
-            
-          ),
+          bottomNavigationBar: SafeArea(
+            child: Container(
+              padding: const EdgeInsets.all(12),
+              margin: const EdgeInsets.symmetric(horizontal: 24),
+              decoration: BoxDecoration(
+                boxShadow: [BoxShadow(
+                  color: Colors.white.withOpacity(0.2),
+                  blurRadius: 12,
+                )],
+                color: const Color(0xFF283846),
+                borderRadius: BorderRadius.circular(24)
+              ),
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 36,
+                    height: 36,
+                    child: RiveAnimation.asset(
+                      'assets/icons.riv',
+                      artboard: 'SEARCH',
+                    ),
+                  )
+                ],)
+            ),
+          )
         ),
     );
   }
