@@ -35,7 +35,7 @@ class NumberLikes extends StatelessWidget {
             child: Text(HumanFormats.humanReadableNumber(reactions.toDouble()), style: TextStyle(
               color: Colors.white,
               fontFamily: 'Barlow Bold',
-              fontSize: GlobalResponsive.verySmallFont(context) + 1
+              fontSize: GlobalResponsive.verySmallFont(context) + 2.2
             ),),
           ),
         ),

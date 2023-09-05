@@ -81,8 +81,8 @@ class VideoScrollableView extends StatelessWidget {
               left: GlobalResponsive.bigDiference(context) - 7,),
             child: const _BotonPedirDelivery(
               bottom: 225,
-              title: "Solicitar Delivery",
-              subtitle: "Solicita un Servicio de Entrega",
+              title: "Agregar al Carrito",
+              subtitle: "Un restaurante a la vez",
             ),
           ),
           const SizedBox(height: 30),
@@ -173,9 +173,12 @@ class _BotonPedirDelivery extends StatelessWidget {
 
   BoxDecoration boxDecoration(BuildContext context) {
     return BoxDecoration(
-            color: const Color.fromARGB(37, 0, 0, 0),
-            borderRadius: borderRadius(context),
-          );
+      border: Border.all(
+        color: Colors.grey
+      ),
+      color: Color.fromARGB(104, 0, 0, 0),
+      borderRadius: borderRadius(context),
+    );
   }
 
   BorderRadius borderRadius(BuildContext context) {

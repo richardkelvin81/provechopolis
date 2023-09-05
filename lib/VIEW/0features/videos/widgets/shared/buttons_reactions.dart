@@ -20,7 +20,7 @@ class ButtonsReactions extends StatelessWidget {
       children: [
         FadeInUp(
           delay: const Duration(milliseconds: 200),
-          child: _ButtonPP(
+          child: const _ButtonPP(
             path: "assets/favorito.png",
             paddingAll: 0,
           ),
@@ -48,7 +48,7 @@ class ButtonsReactions extends StatelessWidget {
           )),
         FadeInUp(
           delay: const Duration(milliseconds: 1000),
-          child: _ButtonPP(
+          child: const _ButtonPP(
             path: "assets/logopp.png",
             paddingAll: 13,
           ),
@@ -88,10 +88,18 @@ class _ButtonReactions extends StatelessWidget {
           alignment: Alignment.bottomCenter,
           clipBehavior: Clip.none,
           children: [
-            CircleAvatar(
-              radius: GlobalResponsive.bigDiference(context) + 7,
-              backgroundColor: const Color(0x29000000),
-              child: Icon(icon, color: Colors.white),
+            DecoratedBox(
+              decoration: BoxDecoration(
+                boxShadow: [BoxShadow(
+                  color: Colors.white.withOpacity(0.23),
+                  blurRadius: 18
+                )] 
+              ),
+              child: CircleAvatar(
+                radius: GlobalResponsive.bigDiference(context) + 7,
+                backgroundColor: Colors.black54,
+                child: Icon(icon, color: Colors.white),
+              ),
             ),
             NumberLikes(
               reactions: numberReactions

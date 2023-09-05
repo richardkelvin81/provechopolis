@@ -25,7 +25,7 @@ class DiscoverScreen extends StatelessWidget {
               ),
             ),
         body: discoverProvider.initialLoading
-            ?  Center(
+            ?  const Center(
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -62,12 +62,8 @@ class _CustomAppBar extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(GlobalResponsive.bigDiference(context)),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            Icons.live_tv,
-            color: Colors.white,
-            size: GlobalResponsive.bigDiference(context) - 5,
-          ),
           Expanded(
             child: Center(
                 child: SizedBox(
@@ -78,11 +74,6 @@ class _CustomAppBar extends StatelessWidget {
                             : 200,
                     child: const Image(
                         image: AssetImage('assets/logolargo.png')))),
-          ),
-          Icon(
-            Icons.live_tv,
-            color: Colors.white,
-            size: GlobalResponsive.bigDiference(context) - 5,
           ),
         ],
       ),
