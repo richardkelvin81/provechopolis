@@ -68,10 +68,10 @@ class _CustomAppBar extends StatelessWidget {
             child: Center(
                 child: SizedBox(
                     width: size.width < 400
-                        ? 120
+                        ? 150
                         : size.width < 500
-                            ? 160
-                            : 200,
+                            ? 180
+                            : 230,
                     child: const Image(
                         image: AssetImage('assets/logolargo.png')))),
           ),
