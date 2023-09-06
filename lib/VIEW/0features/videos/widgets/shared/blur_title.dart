@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import 'package:provechopolis/VIEW/0features/videos/widgets/shared/video_titulos.dart';
 import 'package:provechopolis/VIEW/domain/entities/video_post.dart';
 import 'package:provechopolis/global_responsive.dart';
