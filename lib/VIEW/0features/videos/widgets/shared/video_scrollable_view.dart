@@ -74,6 +74,14 @@ class VideoScrollableView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SizedBox(
+            height: GlobalResponsive.bigDiference(context) + 65,
+          ),
+          const _BotonPedirDelivery(
+            bottom: 225,
+            title: "50 Bolivianos",
+            subtitle: "Costo Unitario",
+          ),
           const Spacer(),
           //TopsBlurTitle(),
           const _BotonPedirDelivery(
@@ -82,7 +90,6 @@ class VideoScrollableView extends StatelessWidget {
             subtitle: "Un restaurante a la vez",
           ),
           const SizedBox(height: 30),
-
           const SizedBox(height: 5),
           BlurTitle(videoPost: videoPost),
         ],
@@ -131,36 +138,52 @@ class _BotonPedirDelivery extends StatelessWidget {
           onPressed: () {},
           child: Padding(
             padding: EdgeInsets.only(
-              top: GlobalResponsive.paddingText(context) - 2.5,
-              right: GlobalResponsive.paddingText(context) - 2.5,
-              left: GlobalResponsive.paddingText(context) - 2.5,
+              top: GlobalResponsive.paddingText(context) - 3,
+              right: GlobalResponsive.paddingText(context) - 3,
+              
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text(title, style: TextStyle(
-                  fontFamily: "Barlow Bold",
-                  color: Colors.white,
-                  fontSize: GlobalResponsive.smallFont(context) + 1.2
-                ),),
+                Padding(
+                  padding: EdgeInsets.only(
+                    left: GlobalResponsive.paddingText(context) - 3,
+                  ),
+                  child: Text(title, style: TextStyle(
+                    fontFamily: "Barlow Bold",
+                    color: Colors.white,
+                    fontSize: GlobalResponsive.smallFont(context) + 1.2
+                  ),),
+                ),
                 SizedBox(
                   height: GlobalResponsive.paddingText(context) - 10
                 ),
-                Text(subtitle, 
-                  style: TextStyle(
-                    fontFamily: "Barlow Medium",
-                    color: Color(0x9FFFFFFF),
-                    fontSize: GlobalResponsive.smallFont(context) - 3.5
-                ),),
+                Padding(
+                  padding: EdgeInsets.only(
+                    left: GlobalResponsive.paddingText(context) - 3,
+                  ),
+                  child: Text(subtitle, 
+                    style: TextStyle(
+                      fontFamily: "Barlow Medium",
+                      color: Color(0x9FFFFFFF),
+                      fontSize: GlobalResponsive.smallFont(context) - 3.5
+                  ),),
+                ),
                 SizedBox(
-                  height: GlobalResponsive.paddingText(context) - 2.5
+                  height: GlobalResponsive.paddingText(context) - 3
                 ),
                 Container(
-                  width: GlobalResponsive.bigDiference(context) + 30,
-                  height: 1,
+                  width: GlobalResponsive.bigDiference(context) + 75,
+                  height: 1.3,
                   decoration: const BoxDecoration(
-                    color: Color(0xFFF8C358),
+                    gradient: LinearGradient(
+                      colors: [
+                        Color(0xFFF8C358),
+                        Color(0xE4F8C358),
+                        Color.fromARGB(49, 248, 195, 88),
+                      ]
+                    ),
                   ),
                 )
               ],
