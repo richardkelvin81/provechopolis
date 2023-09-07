@@ -28,36 +28,42 @@ class HomePublicScreenState extends State<HomePublicScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Scaffold(
       extendBody: true,
       body: IndexedStack(
         index: _page,
         children: screens,
       ),
-      bottomNavigationBar: CurvedNavigationBar(
-          
-            onTap: (index) {
-              setState(() {
-                _page = index;
-              });
-            },
-            index: _page,
-            height: GlobalResponsive.bigDiferenceBottomBar(context) + 28,
-            items: [
-              Icon(Icons.search_rounded, color: Colors.white, size: GlobalResponsive.bigDiferenceBottomBar(context)),
-              Icon(Icons.favorite_rounded, color: Colors.white, size: GlobalResponsive.bigDiferenceBottomBar(context)),
-              Icon(Icons.add_reaction_sharp, color: Colors.white, size: GlobalResponsive.bigDiferenceBottomBar(context)),
-              Icon(Icons.notifications_active, color: Colors.white, size: GlobalResponsive.bigDiferenceBottomBar(context)),
-              Icon(Icons.supervised_user_circle, color: Colors.white, size: GlobalResponsive.bigDiferenceBottomBar(context)),
-            ],
-            color: Color.fromARGB(220, 35, 37, 41),
-            buttonBackgroundColor: Color.fromARGB(220, 35, 37, 41),
-            backgroundColor: Colors.transparent,
-            animationCurve: Curves.easeInOut,
-            animationDuration: const Duration(milliseconds: 500),
-
-          ),
+      bottomNavigationBar: DecoratedBox(
+        decoration: BoxDecoration(
+          boxShadow: [BoxShadow(
+            color: Colors.white.withOpacity(0.1),
+            blurRadius: 20
+          )]
+        ),
+        child: CurvedNavigationBar(
+              onTap: (index) {
+                setState(() {
+                  _page = index;
+                });
+              },
+              index: _page,
+              height: GlobalResponsive.bigDiferenceBottomBar(context) + 28,
+              items: [
+                Icon(Icons.search_rounded, color: Colors.white, size: GlobalResponsive.bigDiferenceBottomBar(context)),
+                Icon(Icons.favorite_rounded, color: Colors.white, size: GlobalResponsive.bigDiferenceBottomBar(context)),
+                Icon(Icons.add_reaction_sharp, color: Colors.white, size: GlobalResponsive.bigDiferenceBottomBar(context)),
+                Icon(Icons.notifications_active, color: Colors.white, size: GlobalResponsive.bigDiferenceBottomBar(context)),
+                Icon(Icons.supervised_user_circle, color: Colors.white, size: GlobalResponsive.bigDiferenceBottomBar(context)),
+              ],
+              color: Colors.black54,
+              buttonBackgroundColor: Colors.black54,
+              backgroundColor: Colors.transparent,
+              animationCurve: Curves.easeInOut,
+              animationDuration: const Duration(milliseconds: 500),
+        
+            ),
+      ),
     );
   }
 

@@ -76,14 +76,10 @@ class VideoScrollableView extends StatelessWidget {
         children: [
           const Spacer(),
           //TopsBlurTitle(),
-          Padding(
-            padding: EdgeInsets.only(
-              left: GlobalResponsive.bigDiference(context) - 7,),
-            child: const _BotonPedirDelivery(
-              bottom: 225,
-              title: "Agregar al Carrito",
-              subtitle: "Un restaurante a la vez",
-            ),
+          const _BotonPedirDelivery(
+            bottom: 225,
+            title: "Agregar al Carrito",
+            subtitle: "Un restaurante a la vez",
           ),
           const SizedBox(height: 30),
 
@@ -134,8 +130,10 @@ class _BotonPedirDelivery extends StatelessWidget {
         child: MaterialButton(
           onPressed: () {},
           child: Padding(
-            padding: EdgeInsets.all(
-              GlobalResponsive.paddingText(context) - 2.5
+            padding: EdgeInsets.only(
+              top: GlobalResponsive.paddingText(context) - 2.5,
+              right: GlobalResponsive.paddingText(context) - 2.5,
+              left: GlobalResponsive.paddingText(context) - 2.5,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -155,6 +153,16 @@ class _BotonPedirDelivery extends StatelessWidget {
                     color: Color(0x9FFFFFFF),
                     fontSize: GlobalResponsive.smallFont(context) - 3.5
                 ),),
+                SizedBox(
+                  height: GlobalResponsive.paddingText(context) - 2.5
+                ),
+                Container(
+                  width: GlobalResponsive.bigDiference(context) + 30,
+                  height: 1,
+                  decoration: const BoxDecoration(
+                    color: Color(0xFFF8C358),
+                  ),
+                )
               ],
             ),
           ),
@@ -165,15 +173,14 @@ class _BotonPedirDelivery extends StatelessWidget {
 
   BoxDecoration boxDecoration(BuildContext context) {
     return BoxDecoration(
-      border: Border.all(
-        color: Colors.grey
-      ),
-      color: Color.fromARGB(104, 0, 0, 0),
+      color: const Color.fromARGB(104, 0, 0, 0),
       borderRadius: borderRadius(context),
     );
   }
 
   BorderRadius borderRadius(BuildContext context) {
-    return BorderRadius.circular(90);
+    return BorderRadius.horizontal(
+      right: Radius.circular(GlobalResponsive.smallFont(context) + 2)
+    );
   }
 }
