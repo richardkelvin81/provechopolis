@@ -1,11 +1,15 @@
 
 import 'dart:ui';
 
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provechopolis/VIEW/0features/explorer/explorer_screen.dart';
 import 'package:provechopolis/VIEW/0features/notify/notify_screen.dart';
 import 'package:provechopolis/VIEW/0features/videos/screens/discover/discover_screen.dart';
 import 'package:provechopolis/VIEW/videos/new_video_screen.dart';
+import 'package:provechopolis/global_responsive.dart';
+
+import '../user/user_screen.dart';
 
 class HomePublicScreen extends StatefulWidget {
   @override
@@ -13,12 +17,13 @@ class HomePublicScreen extends StatefulWidget {
 }
 
 class HomePublicScreenState extends State<HomePublicScreen> {
-  var currentIndex = 0;
+  var _page = 2;
   List<Widget> screens = [
-    const DiscoverScreen(),
     const ExplorerScreen(),
+    const NewVideoScreen(),
+    const DiscoverScreen(),
     const NotifyScreen(),
-    const NewVideoScreen()
+    const UserScreen()
   ];
 
   @override
@@ -27,85 +32,32 @@ class HomePublicScreenState extends State<HomePublicScreen> {
     return Scaffold(
       extendBody: true,
       body: IndexedStack(
-        index: currentIndex,
+        index: _page,
         children: screens,
       ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(20),
-        child: DecoratedBox(
-          decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                color: Colors.white.withOpacity(.15),
-                blurRadius: 10,
-                blurStyle: BlurStyle.outer
-              ),
+      bottomNavigationBar: CurvedNavigationBar(
+          
+            onTap: (index) {
+              setState(() {
+                _page = index;
+              });
+            },
+            index: _page,
+            height: GlobalResponsive.bigDiferenceBottomBar(context) + 28,
+            items: [
+              Icon(Icons.search_rounded, color: Colors.white, size: GlobalResponsive.bigDiferenceBottomBar(context)),
+              Icon(Icons.favorite_rounded, color: Colors.white, size: GlobalResponsive.bigDiferenceBottomBar(context)),
+              Icon(Icons.add_reaction_sharp, color: Colors.white, size: GlobalResponsive.bigDiferenceBottomBar(context)),
+              Icon(Icons.notifications_active, color: Colors.white, size: GlobalResponsive.bigDiferenceBottomBar(context)),
+              Icon(Icons.supervised_user_circle, color: Colors.white, size: GlobalResponsive.bigDiferenceBottomBar(context)),
             ],
-            borderRadius: BorderRadius.circular(50),
+            color: Color.fromARGB(220, 35, 37, 41),
+            buttonBackgroundColor: Color.fromARGB(220, 35, 37, 41),
+            backgroundColor: Colors.transparent,
+            animationCurve: Curves.easeInOut,
+            animationDuration: const Duration(milliseconds: 500),
+
           ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(50),
-            child: BackdropFilter(
-              filter: ImageFilter.blur(
-                sigmaX: 5, sigmaY: 5
-              ),
-              child: Container(
-                height: size.width * .140,
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(88, 0, 0, 0),
-                  borderRadius: BorderRadius.circular(50),
-                ),
-                child: ListView.builder(
-                  itemCount: 4,
-                  scrollDirection: Axis.horizontal,
-                  padding: EdgeInsets.symmetric(horizontal: size.width * .020),
-                  itemBuilder: (context, index) => InkWell(
-                    onTap: () {
-                      setState(
-                        () {
-                          currentIndex = index;
-                        },
-                      );
-                    },
-                    splashColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        AnimatedContainer(
-                          duration: const Duration(milliseconds: 1500),
-                          curve: Curves.fastLinearToSlowEaseIn,
-                          margin: EdgeInsets.only(
-                            bottom: index == currentIndex ? 0 : size.width * .036,
-                            right: size.width * .047,
-                            left: size.width * .047,
-                          ),
-                          width: size.width * .115,
-                          height: index == currentIndex ? size.width * .0116 : 0,
-                          decoration: const BoxDecoration(
-                            color: Color(0xFFF8C358),
-                            borderRadius: BorderRadius.vertical(
-                              bottom: Radius.circular(10),
-                            ),
-                          ),
-                        ),
-                        Icon(
-                          listOfIcons[index],
-                          size: size.width * .0615,
-                          color: index == currentIndex
-                              ? Color(0xFFF8C358)
-                              : Color.fromARGB(81, 255, 255, 255),
-                        ),
-                        SizedBox(height: size.width * .030),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ),
-      ),
     );
   }
 

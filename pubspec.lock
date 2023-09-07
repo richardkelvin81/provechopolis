@@ -121,6 +121,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
+  curved_navigation_bar:
+    dependency: "direct main"
+    description:
+      name: curved_navigation_bar
+      sha256: ea6412d00c5d83501bbf1cf9d1ac2ff11a20fbaf910c103c95ace7de82910334
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.3"
   fake_async:
     dependency: transitive
     description:
@@ -536,6 +544,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.0.5"
+  r_nav_n_sheet:
+    dependency: "direct main"
+    description:
+      name: r_nav_n_sheet
+      sha256: "3a2a7b4fefb628c36329f4ee1257bc74d089f20b7ed4d142e3b9b111865454f7"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.2"
   rxdart:
     dependency: transitive
     description:

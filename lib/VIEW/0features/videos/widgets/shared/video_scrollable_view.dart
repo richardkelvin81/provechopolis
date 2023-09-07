@@ -52,7 +52,7 @@ class VideoScrollableView extends StatelessWidget {
               // LA SEGUNDA COLUMNA SON LOS ELEMENTOS DE LA DERECHA, LOS BOTONES PARA REACCIONAR A LOS VIDEOS
               Padding(
                 padding: EdgeInsets.only(
-                  bottom: MediaQuery.of(context).size.width * .235,),
+                  bottom: GlobalResponsive.bigDiference(context) + 48),
 
                 child: Row(
                   children: [
@@ -128,42 +128,34 @@ class _BotonPedirDelivery extends StatelessWidget {
           blurRadius: 13,
         )],
       ),
-      child: ClipRRect(
-        borderRadius: borderRadius(context),
-        child: BackdropFilter(
-          filter: ImageFilter.blur(
-            sigmaX: 3.5, sigmaY: 3.5,
-          ),
-          child: Container(
-            clipBehavior: Clip.antiAlias,
-            decoration: boxDecoration(context),
-            child: MaterialButton(
-              onPressed: () {},
-              child: Padding(
-                padding: EdgeInsets.all(
-                  GlobalResponsive.paddingText(context) - 2.5
+      child: Container(
+        clipBehavior: Clip.antiAlias,
+        decoration: boxDecoration(context),
+        child: MaterialButton(
+          onPressed: () {},
+          child: Padding(
+            padding: EdgeInsets.all(
+              GlobalResponsive.paddingText(context) - 2.5
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(title, style: TextStyle(
+                  fontFamily: "Barlow Bold",
+                  color: Colors.white,
+                  fontSize: GlobalResponsive.smallFont(context) + 1.2
+                ),),
+                SizedBox(
+                  height: GlobalResponsive.paddingText(context) - 10
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(title, style: TextStyle(
-                      fontFamily: "Barlow Bold",
-                      color: Colors.white,
-                      fontSize: GlobalResponsive.smallFont(context) + 1.2
-                    ),),
-                    SizedBox(
-                      height: GlobalResponsive.paddingText(context) - 10
-                    ),
-                    Text(subtitle, 
-                      style: TextStyle(
-                        fontFamily: "Barlow Medium",
-                        color: Color(0x9FFFFFFF),
-                        fontSize: GlobalResponsive.smallFont(context) - 3.5
-                    ),),
-                  ],
-                ),
-              ),
+                Text(subtitle, 
+                  style: TextStyle(
+                    fontFamily: "Barlow Medium",
+                    color: Color(0x9FFFFFFF),
+                    fontSize: GlobalResponsive.smallFont(context) - 3.5
+                ),),
+              ],
             ),
           ),
         ),
