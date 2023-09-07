@@ -6,9 +6,10 @@ import 'package:provider/provider.dart';
 
 import 'CONFIG/app_theme.dart';
 import 'firebase_options.dart';
+
 void main() async {
-    WidgetsFlutterBinding.ensureInitialized();
-   await Firebase.initializeApp(
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(const MyApp());
@@ -27,9 +28,12 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
+        
         title: 'Material App',
         theme: AppTheme.getTheme(),
-        home: HomePublicScreen()
+        home: MediaQuery(
+          data: MediaQuery.of(context).copyWith(textScaleFactor: 1.1),
+          child: HomePublicScreen())
       ),
     );
   }

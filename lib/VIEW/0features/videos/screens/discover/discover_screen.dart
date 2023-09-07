@@ -17,15 +17,15 @@ class DiscoverScreen extends StatelessWidget {
         appBar: AppBar(
             elevation: 0,
             backgroundColor: Colors.transparent,
-            title: Padding(
+            title: const Padding(
               padding: EdgeInsets.only(
                   top: 5,
-                  bottom: GlobalResponsive.bigDiference(context) - 20),
-              child: const _CustomAppBar(),
+              ),
+              child: _CustomAppBar(),
               ),
             ),
         body: discoverProvider.initialLoading
-            ?  Center(
+            ?  const Center(
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -60,29 +60,20 @@ class _CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Padding(
-      padding: EdgeInsets.all(GlobalResponsive.bigDiference(context) - 7),
+      padding: EdgeInsets.all(GlobalResponsive.bigDiference(context)),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            Icons.live_tv,
-            color: Colors.white,
-            size: GlobalResponsive.bigDiference(context) - 5,
-          ),
           Expanded(
             child: Center(
                 child: SizedBox(
                     width: size.width < 400
-                        ? 120
+                        ? 150
                         : size.width < 500
-                            ? 160
-                            : 200,
+                            ? 180
+                            : 230,
                     child: const Image(
                         image: AssetImage('assets/logolargo.png')))),
-          ),
-          Icon(
-            Icons.live_tv,
-            color: Colors.white,
-            size: GlobalResponsive.bigDiference(context) - 5,
           ),
         ],
       ),
