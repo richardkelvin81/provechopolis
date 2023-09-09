@@ -8,11 +8,6 @@ import 'package:provechopolis/VIEW/0features/videos/widgets/shared/buttons_react
 import 'package:provechopolis/VIEW/domain/entities/video_post.dart';
 import 'package:provechopolis/VIEW/0features/videos/widgets/video/full_screen_player.dart';
 import 'package:provechopolis/global_responsive.dart';
-<<<<<<< HEAD
-import '../../../../demo/tiktok_player_screen.dart';
-import 'delivery_button.dart';
-=======
->>>>>>> 73188646844c4c033534e7b467b7a64643be81d8
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 
 
@@ -32,11 +27,6 @@ class VideoScrollableView extends StatelessWidget {
           return Stack(
             children: [
               SizedBox.expand(
-<<<<<<< HEAD
-                child: TikTokVideoPlayer(
-                          videoUrl: videoPost.videoUrl,
-                          )
-=======
                 child: FutureBuilder<File>(
                     future: DefaultCacheManager().getSingleFile(videoPost.videoUrl),
                     builder: (context, snapshot) {
@@ -55,7 +45,6 @@ class VideoScrollableView extends StatelessWidget {
                       }
                     },
                   ),
->>>>>>> 73188646844c4c033534e7b467b7a64643be81d8
               ),
               /* INSTRUCTIVA DE WIDGETS DE LA PANTALLA DE REELS */
               // DESDE ESTE PUNTO SE CONFORMAN DOS COLUMNAS EN UNA FILA
