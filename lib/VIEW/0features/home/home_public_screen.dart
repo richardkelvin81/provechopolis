@@ -66,11 +66,4 @@ class HomePublicScreenState extends State<HomePublicScreen> {
       ),
     );
   }
-
-  List<IconData> listOfIcons = [
-    Icons.home_rounded,
-    Icons.favorite_rounded,
-    Icons.settings_rounded,
-    Icons.person_rounded,
-  ];
 }
