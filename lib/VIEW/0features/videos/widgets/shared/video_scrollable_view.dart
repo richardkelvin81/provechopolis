@@ -52,7 +52,7 @@ class VideoScrollableView extends StatelessWidget {
               // LA SEGUNDA COLUMNA SON LOS ELEMENTOS DE LA DERECHA, LOS BOTONES PARA REACCIONAR A LOS VIDEOS
               Padding(
                 padding: EdgeInsets.only(
-                  bottom: GlobalResponsive.bigDiference(context) + 48),
+                  bottom: GlobalResponsive.bigDiference(context) + 50),
 
                 child: Row(
                   children: [
