@@ -17,53 +17,140 @@ class HomePublicScreen extends StatefulWidget {
 }
 
 class HomePublicScreenState extends State<HomePublicScreen> {
-  var _page = 2;
+  int currentTab = 0;
+  
   List<Widget> screens = [
-    const ExplorerScreen(),
-    const NewVideoScreen(),
     const DiscoverScreen(),
-    const NotifyScreen(),
+    const NewVideoScreen(),
+    const ExplorerScreen(),
     const UserScreen()
   ];
 
   @override
   Widget build(BuildContext context) {
+    final _size = GlobalResponsive.bigDiferenceBottomBar(context) - 4;
     return Scaffold(
       extendBody: true,
       body: IndexedStack(
-        index: _page,
+        index: currentTab,
         children: screens,
       ),
       bottomNavigationBar: DecoratedBox(
         decoration: BoxDecoration(
           boxShadow: [BoxShadow(
-            color: Colors.white.withOpacity(0.1),
-            blurRadius: 20
+            blurStyle: BlurStyle.outer,
+            color: Colors.white.withOpacity(0.45),
+            blurRadius: 1
           )]
         ),
-        child: CurvedNavigationBar(
-              onTap: (index) {
-                setState(() {
-                  _page = index;
-                });
-              },
-              index: _page,
-              height: GlobalResponsive.bigDiferenceBottomBar(context) + 28,
-              items: [
-                Icon(Icons.search_rounded, color: Colors.white, size: GlobalResponsive.bigDiferenceBottomBar(context)),
-                Icon(Icons.favorite_rounded, color: Colors.white, size: GlobalResponsive.bigDiferenceBottomBar(context)),
-                Icon(Icons.add_reaction_sharp, color: Colors.white, size: GlobalResponsive.bigDiferenceBottomBar(context)),
-                Icon(Icons.notifications_active, color: Colors.white, size: GlobalResponsive.bigDiferenceBottomBar(context)),
-                Icon(Icons.supervised_user_circle, color: Colors.white, size: GlobalResponsive.bigDiferenceBottomBar(context)),
-              ],
-              color: Colors.black54,
-              buttonBackgroundColor: Colors.black54,
-              backgroundColor: Colors.transparent,
-              animationCurve: Curves.easeInOut,
-              animationDuration: const Duration(milliseconds: 500),
-        
-            ),
+        child: BottomAppBar(
+                elevation: 0, 
+                color: currentTab == 0
+                  ? Colors.transparent
+                  : Colors.white,
+                  
+                child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      buttonNavigation(
+                        _size, 0, Icons.home_outlined
+                      ),
+                      buttonNavigation(
+                        _size, 1, Icons.dashboard,
+                      ), 
+
+
+
+                      Container(
+                        margin: EdgeInsets.symmetric(
+                          vertical: 7
+                        ),  
+                        padding: EdgeInsets.all(
+                          GlobalResponsive.smallFont(context) - 3,
+                        ),
+                        clipBehavior: Clip.antiAlias,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(90),
+                          gradient: const LinearGradient(
+                            colors: [
+                              Color(0xFFF8C358),
+                              
+                              Color(0xFFFBAF3C),
+                            ]
+                          )
+                        ),
+                        child: MaterialButton(
+                          onPressed: () {},
+                          child: Row(
+                            children: [
+                              Text('Crear', style: TextStyle(
+                                color: Colors.white,
+                                fontSize: GlobalResponsive.smallFont(context) + 3,
+                                fontFamily: 'Barlow Black',
+                              ),),
+                              const SizedBox(width: 3),
+                              Icon(
+                                Icons.add_a_photo, 
+                                color: Colors.white,
+                                size: GlobalResponsive.smallFont(context) + 4,
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+
+
+
+                      buttonNavigation(
+                        _size, 2, Icons.search_outlined,
+                      ), 
+                      buttonNavigation(
+                        _size, 3, Icons.supervised_user_circle_sharp,
+                      ), 
+                    ]),
+              )
       ),
     );
   }
+
+  Expanded buttonNavigation(
+      double _size,
+      number,
+      icon,
+    ) {
+    return Expanded(
+      child: Container(
+        clipBehavior: Clip.antiAlias,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(90)
+        ),
+        child: MaterialButton(
+          splashColor: Color.fromARGB(117, 248, 195, 88),
+          highlightColor: Colors.transparent,
+          minWidth: 0,
+          onPressed: () {
+              setState(() {
+                currentTab = number;
+              });
+            },
+          child: Padding(
+              padding: const EdgeInsets.symmetric(
+                vertical: 10, 
+              ),
+              child: Icon(
+                icon,
+                size: _size,
+                color: currentTab == number
+                    ? activeColor()
+                    : inactiveColor(),
+              ),
+            ),
+        ),
+      ),
+    );
+  }
+  Color inactiveColor() => Colors.grey;
+
+  Color activeColor() => const Color(0xFFFCB244);
 }
