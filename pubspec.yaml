@@ -93,6 +93,11 @@ flutter:
         - asset: fonts/barlow-bold.otf
     #       - asset: fonts/TrajanPro_Bold.ttf
     #         weight: 700
+    - family: Barlow Black
+      fonts:
+        - asset: fonts/barlow-black.ttf
+    #       - asset: fonts/TrajanPro_Bold.ttf
+    #         weight: 700
     - family: Barlow Medium
       fonts:
         - asset: fonts/barlow-medium.otf
