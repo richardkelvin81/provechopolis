@@ -16,6 +16,7 @@ class NumberLikes extends StatelessWidget {
     return Positioned(
       bottom: -10,
       child: ClipRRect(
+        borderRadius: BorderRadius.circular(90),
         child: BackdropFilter(
           filter: ImageFilter.blur(
             sigmaX: 4, sigmaY: 4,
@@ -30,12 +31,12 @@ class NumberLikes extends StatelessWidget {
                 color: Colors.white
               ),
               borderRadius: BorderRadius.circular(90),
-              color: const Color(0x62000000),
+              color: const Color(0x51000000),
             ),
             child: Text(HumanFormats.humanReadableNumber(reactions.toDouble()), style: TextStyle(
               color: Colors.white,
               fontFamily: 'Barlow Bold',
-              fontSize: GlobalResponsive.verySmallFont(context)
+              fontSize: GlobalResponsive.verySmallFont(context) + 1.2
             ),),
           ),
         ),

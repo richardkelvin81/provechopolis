@@ -46,14 +46,14 @@ class ButtonsReactions extends StatelessWidget {
              icon: Icons.share_outlined,
              numberReactions: video.likes,
           )),
-        /*FadeInUp(
+        FadeInUp(
           delay: const Duration(milliseconds: 1000),
           child: const _ButtonPP(
             path: "assets/logopp.png",
-            paddingAll: 13,
+            paddingAll: 19.5,
           ),
           
-        ),*/
+        ),
       ],
     );
   }
@@ -88,17 +88,20 @@ class _ButtonReactions extends StatelessWidget {
           alignment: Alignment.bottomCenter,
           clipBehavior: Clip.none,
           children: [
-            DecoratedBox(
+            Container(
+              clipBehavior: Clip.antiAlias,
               decoration: BoxDecoration(
-                boxShadow: [BoxShadow(
-                  color: Colors.white.withOpacity(0.23),
-                  blurRadius: 18
-                )] 
+                borderRadius: BorderRadius.circular(90),
               ),
-              child: CircleAvatar(
-                radius: GlobalResponsive.bigDiference(context) + 7,
-                backgroundColor: Colors.black54,
-                child: Icon(icon, color: Colors.white),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(
+                  sigmaX: 3.5, sigmaY: 3.5
+                ),
+                child: CircleAvatar(
+                  radius: GlobalResponsive.bigDiference(context) + 7,
+                  backgroundColor: Color(0x51000000),
+                  child: Icon(icon, color: Colors.white),
+                ),
               ),
             ),
             NumberLikes(
