@@ -14,16 +14,6 @@ class DiscoverScreen extends StatelessWidget {
     return Scaffold(
         extendBodyBehindAppBar: true,
         backgroundColor: const Color(0xFF292A2C),
-        appBar: AppBar(
-            elevation: 0,
-            backgroundColor: Colors.transparent,
-            title: const Padding(
-              padding: EdgeInsets.only(
-                  top: 5,
-              ),
-              child: _CustomAppBar(),
-              ),
-            ),
         body: discoverProvider.initialLoading
             ?  const Center(
                 child: Column(

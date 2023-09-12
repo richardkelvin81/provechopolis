@@ -64,10 +64,11 @@ class HomePublicScreenState extends State<HomePublicScreen> {
 
                       Container(
                         margin: EdgeInsets.symmetric(
-                          vertical: 7
+                          vertical: 6
                         ),  
-                        padding: EdgeInsets.all(
-                          GlobalResponsive.smallFont(context) - 3,
+                        padding: EdgeInsets.symmetric(
+                          horizontal: GlobalResponsive.smallFont(context) - 4,
+                          vertical: GlobalResponsive.smallFont(context) - 7,
                         ),
                         clipBehavior: Clip.antiAlias,
                         decoration: BoxDecoration(
@@ -75,7 +76,6 @@ class HomePublicScreenState extends State<HomePublicScreen> {
                           gradient: const LinearGradient(
                             colors: [
                               Color(0xFFF8C358),
-                              
                               Color(0xFFFBAF3C),
                             ]
                           )

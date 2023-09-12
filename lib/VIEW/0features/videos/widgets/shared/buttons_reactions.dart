@@ -46,14 +46,14 @@ class ButtonsReactions extends StatelessWidget {
              icon: Icons.share_outlined,
              numberReactions: video.likes,
           )),
-        FadeInUp(
+        /*FadeInUp(
           delay: const Duration(milliseconds: 1000),
           child: const _ButtonPP(
             path: "assets/logopp.png",
             paddingAll: 13,
           ),
           
-        ),
+        ),*/
       ],
     );
   }

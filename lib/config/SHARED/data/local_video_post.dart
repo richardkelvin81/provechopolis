@@ -2,7 +2,7 @@ List<Map<String, dynamic>> videoPosts = [
   {
     'name': 'Picante De Gallina Express',
     'description': 'La Suegra Restaurante',
-    'videoUrl': '',
+    'videoUrl': 'https://videoprovechopolis.s3.sa-east-1.amazonaws.com/1.mp4',
     'likes': 34213,
     'views': 54623,
   },
