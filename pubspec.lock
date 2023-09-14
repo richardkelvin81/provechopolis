@@ -544,14 +544,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.0.5"
-  r_nav_n_sheet:
-    dependency: "direct main"
-    description:
-      name: r_nav_n_sheet
-      sha256: "3a2a7b4fefb628c36329f4ee1257bc74d089f20b7ed4d142e3b9b111865454f7"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.2"
   rxdart:
     dependency: transitive
     description:
