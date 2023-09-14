@@ -62,40 +62,46 @@ class HomePublicScreenState extends State<HomePublicScreen> {
 
 
 
-                      Container(
-                        margin: EdgeInsets.symmetric(
-                          vertical: 6
-                        ),  
-                        padding: EdgeInsets.symmetric(
-                          horizontal: GlobalResponsive.smallFont(context) - 4,
-                          vertical: GlobalResponsive.smallFont(context) - 7,
-                        ),
-                        clipBehavior: Clip.antiAlias,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(90),
-                          gradient: const LinearGradient(
-                            colors: [
-                              Color(0xFFF8C358),
-                              Color(0xFFFBAF3C),
-                            ]
-                          )
-                        ),
-                        child: MaterialButton(
-                          onPressed: () {},
-                          child: Row(
-                            children: [
-                              Text('Crear', style: TextStyle(
-                                color: Colors.white,
-                                fontSize: GlobalResponsive.smallFont(context) + 3,
-                                fontFamily: 'Barlow Black',
-                              ),),
-                              const SizedBox(width: 3),
-                              Icon(
-                                Icons.add_a_photo, 
-                                color: Colors.white,
-                                size: GlobalResponsive.smallFont(context) + 4,
-                              )
-                            ],
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 7.2
+                          ),  
+                        child: Container(
+                          clipBehavior: Clip.antiAlias,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(90),
+                            gradient: const LinearGradient(
+                              colors: [
+                                Color(0xFFF8C358),
+                                Color(0xFFFBAF3C),
+                              ]
+                            )
+                          ),
+                          child: MaterialButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, 'crear');
+                            },
+                            child: Padding(   
+                              padding: EdgeInsets.symmetric(
+                                horizontal: GlobalResponsive.smallFont(context) - 4.5,
+                                vertical: GlobalResponsive.smallFont(context) - 6.5,
+                              ),
+                              child: Row(
+                                children: [
+                                  Text('Crear', style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: GlobalResponsive.smallFont(context) + 3,
+                                    fontFamily: 'Barlow Black',
+                                  ),),
+                                  const SizedBox(width: 3),
+                                  Icon(
+                                    Icons.add_a_photo, 
+                                    color: Colors.white,
+                                    size: GlobalResponsive.smallFont(context) + 4,
+                                  )
+                                ],
+                              ),
+                            ),
                           ),
                         ),
                       ),

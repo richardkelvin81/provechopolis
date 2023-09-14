@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provechopolis/VIEW/0features/crear/crear_video.dart';
 import 'package:provechopolis/VIEW/0features/home/home_public_screen.dart';
 import 'package:provechopolis/VIEW/0features/videos/provider/discover_provider.dart';
 import 'package:provider/provider.dart';
@@ -28,7 +29,9 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        
+        routes: {
+          'crear': (BuildContext context) => const CrearVideo()
+        },
         title: 'Material App',
         theme: AppTheme.getTheme(),
         home: MediaQuery(
